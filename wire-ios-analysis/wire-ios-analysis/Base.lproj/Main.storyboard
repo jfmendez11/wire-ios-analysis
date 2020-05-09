@@ -35,7 +35,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="5tb-IO-L3e"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About Wire" selectedImage="wireLogo" id="U0o-hT-chY"/>
+                    <tabBarItem key="tabBarItem" title="About Wire" image="wireLogo" id="U0o-hT-chY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dts-Ft-9Y9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,22 +44,75 @@
         <!--Start View Controller-->
         <scene sceneID="yFH-Z8-JqT">
             <objects>
-                <viewController id="0en-hv-x8q" customClass="StartViewController" sceneMemberID="viewController">
+                <viewController id="0en-hv-x8q" customClass="StartViewController" customModule="wire_ios_analysis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VDW-b6-iYh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wire - iOS Analysis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aJh-rU-gXg">
+                                <rect key="frame" x="16" y="99" width="244" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wire" translatesAutoresizingMaskIntoConstraints="NO" id="Rcz-Eq-ZoI">
+                                <rect key="frame" x="8" y="172" width="359" height="228"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="228" id="OnN-QK-loS"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etM-5V-m0G">
+                                <rect key="frame" x="31" y="462" width="313" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="86q-jc-mxI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="To see more, click here...">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="0en-hv-x8q" eventType="touchUpInside" id="7Gh-4V-3z2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diana Cepeda 201613662      Juan Felipe Mendez 201423877" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2B-Oq-Tia">
+                                <rect key="frame" x="16" y="635" width="281" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="lL6-mJ-0qa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Rcz-Eq-ZoI" firstAttribute="top" secondItem="aJh-rU-gXg" secondAttribute="bottom" constant="40" id="05p-7i-Bhr"/>
+                            <constraint firstItem="H2B-Oq-Tia" firstAttribute="leading" secondItem="2mo-uJ-F3H" secondAttribute="leading" constant="16" id="HO4-y9-f9Y"/>
+                            <constraint firstItem="2mo-uJ-F3H" firstAttribute="trailing" secondItem="H2B-Oq-Tia" secondAttribute="trailing" constant="78" id="NkI-wN-hfa"/>
+                            <constraint firstItem="etM-5V-m0G" firstAttribute="top" secondItem="Rcz-Eq-ZoI" secondAttribute="bottom" constant="62" id="Rup-qY-t9A"/>
+                            <constraint firstItem="H2B-Oq-Tia" firstAttribute="top" secondItem="Rcz-Eq-ZoI" secondAttribute="bottom" constant="235" id="UzL-a2-MSk"/>
+                            <constraint firstItem="Rcz-Eq-ZoI" firstAttribute="leading" secondItem="2mo-uJ-F3H" secondAttribute="leading" constant="8" id="Xid-10-hAZ"/>
+                            <constraint firstItem="2mo-uJ-F3H" firstAttribute="bottom" secondItem="H2B-Oq-Tia" secondAttribute="bottom" constant="72" id="fyE-wD-N2h"/>
+                            <constraint firstItem="H2B-Oq-Tia" firstAttribute="top" secondItem="etM-5V-m0G" secondAttribute="bottom" constant="109" id="hy9-f3-VDT"/>
+                            <constraint firstItem="etM-5V-m0G" firstAttribute="leading" secondItem="2mo-uJ-F3H" secondAttribute="leading" constant="31" id="nHs-Zd-tbE"/>
+                            <constraint firstItem="Rcz-Eq-ZoI" firstAttribute="centerX" secondItem="VDW-b6-iYh" secondAttribute="centerX" id="ofX-XY-Oac"/>
+                            <constraint firstItem="aJh-rU-gXg" firstAttribute="leading" secondItem="2mo-uJ-F3H" secondAttribute="leading" constant="16" id="tEa-P1-u9r"/>
+                            <constraint firstItem="2mo-uJ-F3H" firstAttribute="trailing" secondItem="etM-5V-m0G" secondAttribute="trailing" constant="31" id="ymv-Zt-u2K"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2mo-uJ-F3H"/>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="etM-5V-m0G" id="LY8-a3-wyz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vk-3w-YeR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="108"/>
+            <point key="canvasLocation" x="136.80000000000001" y="107.88177339901478"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--TabVC-->
         <scene sceneID="XtJ-Ks-p4w">
             <objects>
-                <tabBarController id="hRH-gw-PLY" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabVC" title="TabVC" id="hRH-gw-PLY" customClass="TabViewController" customModule="wire_ios_analysis" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vpF-lE-G8k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -70,8 +123,8 @@
                         <segue destination="jY9-PB-nuL" kind="relationship" relationship="viewControllers" id="pao-RQ-boT"/>
                         <segue destination="Dc2-7T-ctm" kind="relationship" relationship="viewControllers" id="upY-I0-AyP"/>
                         <segue destination="Hfg-8Q-VEy" kind="relationship" relationship="viewControllers" id="WKm-WE-XQn"/>
-                        <segue destination="lvM-mp-KOc" kind="relationship" relationship="viewControllers" id="s6s-Oa-w8I"/>
                         <segue destination="iua-l7-1om" kind="relationship" relationship="viewControllers" id="mu5-Py-oUr"/>
+                        <segue destination="lvM-mp-KOc" kind="relationship" relationship="viewControllers" id="qEp-SV-hG0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xL4-gw-YEe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -92,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1DG-Us-4TK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="26" y="1685"/>
+            <point key="canvasLocation" x="31" y="1658"/>
         </scene>
         <!--Security-->
         <scene sceneID="o3u-74-FKC">
@@ -132,6 +185,7 @@
         <image name="lock.circle" catalog="system" width="128" height="121"/>
         <image name="speedometer" catalog="system" width="128" height="121"/>
         <image name="wifi.exclamationmark" catalog="system" width="128" height="101"/>
+        <image name="wire" width="4517" height="2226"/>
         <image name="wireLogo" width="40" height="40"/>
     </resources>
 </document>
