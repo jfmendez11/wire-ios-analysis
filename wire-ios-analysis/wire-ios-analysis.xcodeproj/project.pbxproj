@@ -16,6 +16,7 @@
 		58FB62B6246A15B100BA91C2 /* RatingAndReviewsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62B5246A15B100BA91C2 /* RatingAndReviewsClient.swift */; };
 		58FB62B8246A2A4800BA91C2 /* RatingAndReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62B7246A2A4700BA91C2 /* RatingAndReviewModel.swift */; };
 		58FB62BA246A319000BA91C2 /* AboutWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62B9246A319000BA91C2 /* AboutWireViewController.swift */; };
+		58FB62BC246B305400BA91C2 /* CodeAnalysisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62BB246B305400BA91C2 /* CodeAnalysisTableViewController.swift */; };
 		9D05190B2467300500B02B17 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05190A2467300500B02B17 /* Utilities.swift */; };
 		9D05190D24673FB100B02B17 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05190C24673FB100B02B17 /* TabViewController.swift */; };
 		9D05190F24673FE600B02B17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05190E24673FE600B02B17 /* Constants.swift */; };
@@ -46,6 +47,7 @@
 		58FB62B5246A15B100BA91C2 /* RatingAndReviewsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAndReviewsClient.swift; sourceTree = "<group>"; };
 		58FB62B7246A2A4700BA91C2 /* RatingAndReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAndReviewModel.swift; sourceTree = "<group>"; };
 		58FB62B9246A319000BA91C2 /* AboutWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWireViewController.swift; sourceTree = "<group>"; };
+		58FB62BB246B305400BA91C2 /* CodeAnalysisTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAnalysisTableViewController.swift; sourceTree = "<group>"; };
 		9D05190A2467300500B02B17 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9D05190C24673FB100B02B17 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		9D05190E24673FE600B02B17 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				58FB62B5246A15B100BA91C2 /* RatingAndReviewsClient.swift */,
 				58FB62B7246A2A4700BA91C2 /* RatingAndReviewModel.swift */,
 				58FB62B9246A319000BA91C2 /* AboutWireViewController.swift */,
+				58FB62BB246B305400BA91C2 /* CodeAnalysisTableViewController.swift */,
 			);
 			path = AboutWire;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			files = (
 				58FB62B8246A2A4800BA91C2 /* RatingAndReviewModel.swift in Sources */,
 				9D05190D24673FB100B02B17 /* TabViewController.swift in Sources */,
+				58FB62BC246B305400BA91C2 /* CodeAnalysisTableViewController.swift in Sources */,
 				9D3922C9246722850031A9FF /* StartViewController.swift in Sources */,
 				58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */,
 				58FB62BA246A319000BA91C2 /* AboutWireViewController.swift in Sources */,

@@ -15,11 +15,13 @@ class AboutWireViewController: UIViewController {
     @IBOutlet weak var totalRatingLabel: UILabel!
     @IBOutlet weak var totalRatingCountLabel: UILabel!
     @IBOutlet weak var descriptionTextLabel: UILabel!
+    @IBOutlet weak var appImage: UIImageView!
     
     fileprivate let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.showsHorizontalScrollIndicator = false
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(CustomCell.self, forCellWithReuseIdentifier: "reviewsCell")
         return cv
@@ -30,10 +32,10 @@ class AboutWireViewController: UIViewController {
         
         ratingAndReviewView.addSubview(collectionView)
         collectionView.backgroundColor = .white
-        collectionView.topAnchor.constraint(equalTo: ratingAndReviewView.topAnchor, constant: 110).isActive = true
+        collectionView.topAnchor.constraint(equalTo: totalRatingCountLabel.bottomAnchor, constant: 4).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: ratingAndReviewView.leadingAnchor, constant: 8).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: ratingAndReviewView.trailingAnchor, constant: -40).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: ratingAndReviewView.bottomAnchor, constant: 8).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: ratingAndReviewView.trailingAnchor, constant: 0).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 140).isActive = true
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -41,12 +43,30 @@ class AboutWireViewController: UIViewController {
         descriptionTextLabel.text = getDescriptionText()
         descriptionTextLabel.textAlignment = .justified
         descriptionTextLabel.numberOfLines = 0
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        appImage.addGestureRecognizer(tapGestureRecognizer)
+        appImage.isUserInteractionEnabled = true
         // Do any additional setup after loading the view.
         self.getRatingsAndReviews()
     }
     
-    private func gerRating() {
-        
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        if let url = URL(string: "https://apps.apple.com/app/id930944768"), UIApplication.shared.canOpenURL(url) { //"https://apps.apple.com/app/id930944768" https://itunes.apple.com/app/id930944768
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+    
+    private func getRating() -> Double {
+        var rating = 0.0
+        for model in models {
+            rating += Double(model.rating.label)!
+        }
+        return rating/Double(exactly: models.count)!
     }
     
     private func getDescriptionText() -> String {
@@ -57,7 +77,10 @@ class AboutWireViewController: UIViewController {
         Request<[RatingAndReviewModel]>.get(self, path: "feed.entry", url: "https://itunes.apple.com/us/rss/customerreviews/id=930944768/sortBy=mostRecent/json") { (posts) in
             self.models = posts
             DispatchQueue.main.async() {
-                self.totalRatingLabel.text = self.models[0].version.label
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .decimal
+                let formattedNumber = numberFormatter.string(from: NSNumber(value:self.getRating()))
+                self.totalRatingLabel.text = formattedNumber
                 self.totalRatingCountLabel.text = "\(self.models.count) most recent ratings"
                 self.collectionView.reloadData()
             }
@@ -155,7 +178,7 @@ class CustomCell: UICollectionViewCell {
         let lbl = UILabel()
         lbl.font = UIFont.systemFont(ofSize: 10)
         lbl.textColor = .black
-        lbl.textAlignment = .left
+        lbl.textAlignment = .justified
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.contentMode = .scaleToFill
         lbl.clipsToBounds = true

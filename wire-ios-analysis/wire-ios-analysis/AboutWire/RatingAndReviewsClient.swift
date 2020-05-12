@@ -45,6 +45,14 @@ public struct Request<Model: Codable> {
     
     static func parsedModel(with data: Data, at path: String) -> Model? {
         do {
+            if path.isEmpty{
+                //let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+                let decoder = JSONDecoder()
+                guard let model = try? decoder.decode(Model.self, from: data) else {
+                    return nil
+                }
+                return model
+            }
             let json = try JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
             if let dictAtPath = json?.value(forKeyPath: path) {
                 let jsonData = try JSONSerialization.data(withJSONObject: dictAtPath, options: .prettyPrinted)
