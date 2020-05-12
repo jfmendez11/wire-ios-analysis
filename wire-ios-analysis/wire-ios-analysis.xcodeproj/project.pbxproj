@@ -13,6 +13,9 @@
 		58FB6297245E369400BA91C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58FB6296245E369400BA91C2 /* Assets.xcassets */; };
 		58FB629A245E369400BA91C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FB6298245E369400BA91C2 /* LaunchScreen.storyboard */; };
 		58FB62A5245E369400BA91C2 /* wire_ios_analysisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62A4245E369400BA91C2 /* wire_ios_analysisTests.swift */; };
+		58FB62B6246A15B100BA91C2 /* RatingAndReviewsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62B5246A15B100BA91C2 /* RatingAndReviewsClient.swift */; };
+		58FB62B8246A2A4800BA91C2 /* RatingAndReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62B7246A2A4700BA91C2 /* RatingAndReviewModel.swift */; };
+		58FB62BA246A319000BA91C2 /* AboutWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62B9246A319000BA91C2 /* AboutWireViewController.swift */; };
 		9D05190B2467300500B02B17 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05190A2467300500B02B17 /* Utilities.swift */; };
 		9D05190D24673FB100B02B17 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05190C24673FB100B02B17 /* TabViewController.swift */; };
 		9D05190F24673FE600B02B17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05190E24673FE600B02B17 /* Constants.swift */; };
@@ -40,6 +43,9 @@
 		58FB62A0245E369400BA91C2 /* wire-ios-analysisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "wire-ios-analysisTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FB62A4245E369400BA91C2 /* wire_ios_analysisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wire_ios_analysisTests.swift; sourceTree = "<group>"; };
 		58FB62A6245E369400BA91C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58FB62B5246A15B100BA91C2 /* RatingAndReviewsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAndReviewsClient.swift; sourceTree = "<group>"; };
+		58FB62B7246A2A4700BA91C2 /* RatingAndReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAndReviewModel.swift; sourceTree = "<group>"; };
+		58FB62B9246A319000BA91C2 /* AboutWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWireViewController.swift; sourceTree = "<group>"; };
 		9D05190A2467300500B02B17 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9D05190C24673FB100B02B17 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		9D05190E24673FE600B02B17 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 		58FB628C245E369100BA91C2 /* wire-ios-analysis */ = {
 			isa = PBXGroup;
 			children = (
+				58FB62B4246A158000BA91C2 /* AboutWire */,
 				9D0519102467406B00B02B17 /* Utilities */,
 				58FB628D245E369100BA91C2 /* AppDelegate.swift */,
 				58FB628F245E369100BA91C2 /* SceneDelegate.swift */,
@@ -105,6 +112,16 @@
 				58FB62A6245E369400BA91C2 /* Info.plist */,
 			);
 			path = "wire-ios-analysisTests";
+			sourceTree = "<group>";
+		};
+		58FB62B4246A158000BA91C2 /* AboutWire */ = {
+			isa = PBXGroup;
+			children = (
+				58FB62B5246A15B100BA91C2 /* RatingAndReviewsClient.swift */,
+				58FB62B7246A2A4700BA91C2 /* RatingAndReviewModel.swift */,
+				58FB62B9246A319000BA91C2 /* AboutWireViewController.swift */,
+			);
+			path = AboutWire;
 			sourceTree = "<group>";
 		};
 		9D0519102467406B00B02B17 /* Utilities */ = {
@@ -217,10 +234,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58FB62B8246A2A4800BA91C2 /* RatingAndReviewModel.swift in Sources */,
 				9D05190D24673FB100B02B17 /* TabViewController.swift in Sources */,
 				9D3922C9246722850031A9FF /* StartViewController.swift in Sources */,
 				58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */,
+				58FB62BA246A319000BA91C2 /* AboutWireViewController.swift in Sources */,
 				9D05190F24673FE600B02B17 /* Constants.swift in Sources */,
+				58FB62B6246A15B100BA91C2 /* RatingAndReviewsClient.swift in Sources */,
 				9D05190B2467300500B02B17 /* Utilities.swift in Sources */,
 				58FB6290245E369100BA91C2 /* SceneDelegate.swift in Sources */,
 			);
