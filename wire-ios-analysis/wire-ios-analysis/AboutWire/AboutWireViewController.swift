@@ -15,6 +15,8 @@ class AboutWireViewController: UIViewController {
     @IBOutlet weak var totalRatingLabel: UILabel!
     @IBOutlet weak var totalRatingCountLabel: UILabel!
     @IBOutlet weak var descriptionTextLabel: UILabel!
+    @IBOutlet weak var featuresTextLabel: UILabel!
+    
     @IBOutlet weak var appImage: UIImageView!
     
     fileprivate let collectionView: UICollectionView = {
@@ -44,6 +46,10 @@ class AboutWireViewController: UIViewController {
         descriptionTextLabel.textAlignment = .justified
         descriptionTextLabel.numberOfLines = 0
         
+        featuresTextLabel.text = getFeaturesText()
+        featuresTextLabel.textAlignment = .justified
+        featuresTextLabel.numberOfLines = 0
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         appImage.addGestureRecognizer(tapGestureRecognizer)
         appImage.isUserInteractionEnabled = true
@@ -70,7 +76,70 @@ class AboutWireViewController: UIViewController {
     }
     
     private func getDescriptionText() -> String {
-        return "Wire is an encrypted communication and collaboration app created by Wire Swiss. Wire offers a collaboration suite featuring messenger, voice calls, video calls, conference calls, file-sharing, and external collaboration –all protected by a secure end-to-end-encryption. Wire offers three solutions built on its security technology: Wire Pro –which offers Wire's collaboration feature for businesses, Wire Enterprise –includes Wire Pro capabilities with added features for large-scale or regulated organizations, and Wire Red –the on-demand crisis collaboration suite. They also offer Wire Personal, which is a secure messaging app for personal use. For the last one they offer mobile solutions for iOS and Android devices. This is the official website.\n\nThis analysis is going to be over the iOS and Android apps. Acording to the App store's description the version of the app is 3.45 and has a rating of 3.7 out of 5 based on 268 ratings. Also, requires iOS 10.0 or later and it's compatible with iPhone, iPad, and iPod touch. Also, acording to the Play store's description the version of the app is 3.41.848, has a rating of 3.7 of 5 based on 31.050 ratings and has more than a million of dowloads. Also, requires Android 5.0 or later In this analysis we are using the open source code available here. This version has nearly 85% of the code made in Swift."
+        return """
+        Wire is an encrypted communication and collaboration app created by Wire Swiss. Wire offers a collaboration suite featuring messenger, voice calls, video calls, conference calls, file-sharing, and external collaboration –all protected by a secure end-to-end-encryption. Wire offers three solutions built on its security technology: Wire Pro –which offers Wire's collaboration feature for businesses, Wire Enterprise –includes Wire Pro capabilities with added features for large-scale or regulated organizations, and Wire Red –the on-demand crisis collaboration suite. They also offer Wire Personal, which is a secure messaging app for personal use. For the last one they offer mobile solutions for iOS and Android devices. This is the official website.
+        
+        This analysis is going to be over the iOS and Android apps. Acording to the App store's description the version of the app is 3.45 and has a rating of 3.7 out of 5 based on 268 ratings. Also, requires iOS 10.0 or later and it's compatible with iPhone, iPad, and iPod touch. Also, acording to the Play store's description the version of the app is 3.41.848, has a rating of 3.7 of 5 based on 31.050 ratings and has more than a million of dowloads. Also, requires Android 5.0 or later In this analysis we are using the open source code available here. This version has nearly 85% of the code made in Swift.
+        """
+    }
+    
+    private func getFeaturesText() -> String {
+        return """
+        Wire has a base functionalities like other messaging apps:
+
+        •  Create a chat with a contact.
+        •  Send text messages, voice messages, images, videos, GIFs, location and other attachments like files.
+        •  Audio and video calls.
+        •  Create group chats.
+        •  Mute chats.
+        •  Tag someone else with “@”.
+        •  Tells the user if the message was sent, received and read.
+        •  Delete messages.
+        
+        Besides these functionalities Wire has other functionalities that make it different from the other:
+
+        •  Guest rooms: Wire’s secure guest rooms feature extends end-to-end encryption to conversations with external parties without requiring them to register, or even download anything.
+        •  Like messages.
+        •  Send draws made in the app.
+        •  Define a time for the message to disappear.
+        •  Send “Pings”.
+        •  Add sound filters and voice changers to voice messages.
+        •  Unique “Fingerprints” in the devices to ensure the sender of the message.
+        •  Change the style of the text to Bold and Italic
+        •  Create list of bullets
+        
+        Premium Wire Solutions
+        
+        Wire states that “Wire is the most secure and user-friendly collaboration solution that helps avoid shadow-IT and minimize the risk of cyber attacks”. This is aimed to be the main feature of the app and core business. The product is made, primarily, for organizations and its main purpose is to "increase the productivity in your team while keeping your information private." With this in mind, it can be affirmed that the segment target of Wire is the organizations that have a lot of teams and want to communicate in an easy and safe way. Communicate just doesn’t include messages, it also includes files, conference calls or private conversations. For this reason “Wire connects colleagues, partners, consultants and customers in one intuitive and secure platform.” In summary, the problem that they want to solve is the lack of security and easy ways to communicate between members of organizations. For this, they created a multiplatform (Mobile, browser, and desktop) solution where organizations can communicate easily and safely. The main characteristics of Wire are:
+
+        •  End-to-end encrypted.
+        •  Independently audited.
+        •  Multi-device messaging.
+        •  Trusted conversations.
+        •  Forward and backward secrecy.
+        
+        In Wire’s page, they include some “Personas”, but they are differentiated from their role in the organization. This may be because with this information they want to show how Wire is useful in all roles in an organization and why it is a complete solution. Also, for this reason, they don’t include the “casual” or “normal” user that is not involved in an organization.
+
+        However, they have 3 different “packages” besides the normal one. The first one is called “Wire Pro” and according to Wire’s page this combines “secure group messaging, voice and video calls, and file sharing, Wire Pro is built for organizations that need to protect their documents, and secure their communications across teams, and with clients and partners.” For this package, they offer these extra functionalities:
+
+        •  End-to-end encrypted chats, calls and files.
+        •  Secure guest rooms for external parties.
+        •  Video and audio conference calls with just a click.
+        •  Full administrative controls.
+        •  GDPR-compliant and ISO, CCPA, SOX-ready.
+        
+        The second one is called “Wire Enterprise” and it’s pretty similar to the first one. The main difference is the integrations with differents apps (e.g. calendars, CRM) and premium support. For this package, they offer these extra functionalities:
+
+        •  Productive and seamless internal collaboration.
+        •  Protect your data with unrivalled security.
+        •  Steer clear of costly cyber-attacks.
+        •  Secure guest rooms for external parties.
+        •  GDPR-compliant and ISO, CCPA, SOX-ready.
+        
+        The last one is called “Wire Red” and its main function is to provide a “Secure way to communicate in a crisis”. They affirm that “Wire Red is a pre-provisioned secure communication solution to ensure business readiness and recovery.”
+
+        In all the different premium packages Wire provides a free trial. Also, Wire provides a communication whit them to know in a better way how Wire works and all the processes to acquire the product.
+        """
     }
     
     private func getRatingsAndReviews() {
