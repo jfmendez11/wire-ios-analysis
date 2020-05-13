@@ -11,6 +11,13 @@ import UIKit
 struct Release: Codable {
     let tag_name: String
     let published_at: String
+    let name: String
+    let body: String
+    let author: Author
+}
+
+struct Author: Codable {
+    let login: String
 }
 
 struct Inheritances: Codable {
@@ -63,6 +70,10 @@ class CodeAnalysisTableViewController: UITableViewController {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var lastReleaseDateLabel: UILabel!
     @IBOutlet weak var numberOfVersionsLabel: UILabel!
+    @IBOutlet weak var commentsView: UIView!
+    @IBOutlet weak var commentsHeaderLabel: UILabel!
+    
+    var releases = [Release]()
     
     @IBOutlet weak var inheritancesBarChart: BasicBarChart!
     @IBOutlet weak var statsBarChart: BeautifulBarChart!
@@ -74,9 +85,27 @@ class CodeAnalysisTableViewController: UITableViewController {
     var objects: Objects?
     var imports = [Import]()
     
+    fileprivate var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.showsHorizontalScrollIndicator = false
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.register(CustomCommentCell.self, forCellWithReuseIdentifier: "commentsCell")
+        return cv
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        commentsView.addSubview(collectionView)
+        collectionView.backgroundColor = .white
+        collectionView.topAnchor.constraint(equalTo: commentsHeaderLabel.bottomAnchor, constant: 0).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: commentsView.leadingAnchor, constant: 8).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: commentsView.trailingAnchor, constant: 0).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: commentsView.bottomAnchor, constant: 8).isActive = true
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -133,6 +162,8 @@ class CodeAnalysisTableViewController: UITableViewController {
                     self.lastReleaseDateLabel.text = formatter2.string(from: date)
                 }
                 self.numberOfVersionsLabel.text = "\(releases.count)"
+                self.releases = releases
+                self.collectionView.reloadData()
             }
         }
     }
@@ -307,5 +338,150 @@ extension CodeAnalysisTableViewController: RequestDelegate {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
+    }
+}
+
+extension CodeAnalysisTableViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: commentsView.frame.width/1.25, height: 132)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return releases.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "commentsCell", for: indexPath) as! CustomCommentCell
+        cell.backgroundColor = UIColor(red: CGFloat(231)/255.0, green: CGFloat(231)/255.0, blue: CGFloat(231)/255.0, alpha: 1.0)
+        cell.release = self.releases[indexPath.row]
+        cell.layer.cornerRadius = 5
+        return cell
+    }
+}
+
+class CustomCommentCell: UICollectionViewCell {
+    
+    var release: Release? {
+        didSet {
+            guard let release = release else { return }
+            titleLabel.text = release.name
+            authorLabel.text = release.author.login
+            versionLabel.text = "Version: \(release.tag_name)"
+            dateLabel.text = formatDate(release: release)
+            contentLabel.text = release.body
+        }
+    }
+    
+    fileprivate let titleLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        lbl.textColor = .black
+        lbl.textAlignment = .left
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.contentMode = .scaleToFill
+        lbl.adjustsFontSizeToFitWidth = true
+        lbl.clipsToBounds = true
+        return lbl
+    }()
+    
+    fileprivate let authorLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont.systemFont(ofSize: 10, weight: .light)
+        lbl.textColor = .black
+        lbl.textAlignment = .left
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.contentMode = .scaleToFill
+        lbl.clipsToBounds = true
+        return lbl
+    }()
+    
+    fileprivate let versionLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont.systemFont(ofSize: 10, weight: .light)
+        lbl.textColor = .black
+        lbl.textAlignment = .left
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.contentMode = .scaleToFill
+        lbl.clipsToBounds = true
+        return lbl
+    }()
+    
+    fileprivate let dateLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont.systemFont(ofSize: 10, weight: .light)
+        lbl.textColor = .black
+        lbl.textAlignment = .left
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.contentMode = .scaleToFill
+        lbl.clipsToBounds = true
+        return lbl
+    }()
+    
+    fileprivate let contentLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont.systemFont(ofSize: 10)
+        lbl.textColor = .black
+        lbl.textAlignment = .justified
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.contentMode = .scaleToFill
+        lbl.clipsToBounds = true
+        //lbl.adjustsFontSizeToFitWidth = true
+        lbl.minimumScaleFactor = 0.5
+        lbl.numberOfLines = 0 // or 1
+        return lbl
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        
+        contentView.addSubview(titleLabel)
+        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 4).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        
+        contentView.addSubview(authorLabel)
+        authorLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0).isActive = true
+        authorLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4).isActive = true
+        authorLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 4).isActive = true
+        authorLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        
+        contentView.addSubview(versionLabel)
+        versionLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 0).isActive = true
+        versionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4).isActive = true
+        versionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 4).isActive = true
+        versionLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        
+        contentView.addSubview(dateLabel)
+        dateLabel.topAnchor.constraint(equalTo: versionLabel.bottomAnchor, constant: 0).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 4).isActive = true
+        dateLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        
+        contentView.addSubview(contentLabel)
+        contentLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 0).isActive = true
+        contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4).isActive = true
+        contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 4).isActive = true
+        contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 4).isActive = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func formatDate(release: Release) -> String {
+        var result = ""
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        formatter.locale = Locale(identifier: "en")
+        let input = release.published_at
+        if let date = formatter.date(from: input) {
+            let formatter2 = DateFormatter()
+            formatter2.dateFormat = "MMM dd yyyy"
+            formatter2.locale = Locale(identifier: "en")
+            result = formatter2.string(from: date)
+        }
+        return result
     }
 }
