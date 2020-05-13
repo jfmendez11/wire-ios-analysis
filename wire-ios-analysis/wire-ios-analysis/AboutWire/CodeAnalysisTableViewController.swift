@@ -13,12 +13,66 @@ struct Release: Codable {
     let published_at: String
 }
 
+struct Inheritances: Codable {
+    var inheritances: [Inheritance]
+}
+
+struct Inheritance: Codable {
+    var name: String
+    var value: Int
+}
+
+struct Stats: Codable {
+    var scanStats: Stat
+}
+
+struct Stat: Codable {
+    var totalLinesOfCode: Int
+    var scannedFiles: Int
+    var totalStrippedLinesOfCode: Int
+    var longestFile: LongestFile
+}
+
+struct LongestFile: Codable {
+    var name: String
+    var value: Int
+}
+
+struct Objects: Codable {
+    var objects: Object
+}
+
+struct Object: Codable {
+    var classes: Int
+    var protocols: Int
+    var extensions: Int
+    var structs: Int
+    var enums: Int
+}
+
+struct Imports: Codable {
+    var imports: [Import]
+}
+
+struct Import: Codable {
+    var name: String
+    var value: Int
+}
+
 class CodeAnalysisTableViewController: UITableViewController {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var lastReleaseDateLabel: UILabel!
     @IBOutlet weak var numberOfVersionsLabel: UILabel!
     
+    @IBOutlet weak var inheritancesBarChart: BasicBarChart!
+    @IBOutlet weak var statsBarChart: BeautifulBarChart!
+    @IBOutlet weak var objectsBarChart: BasicBarChart!
+    @IBOutlet weak var importsBarChart: BeautifulBarChart!
     
+    var inheritances = [Inheritance]()
+    var scanStats: Stats?
+    var objects: Objects?
+    var imports = [Import]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +83,39 @@ class CodeAnalysisTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.getGithubInfo()
+        self.loadAnalysisData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        emptyInstances()
+        let timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) {[unowned self] (timer) in
+            self.dataInstances()
+        }
+        timer.fire()
+    }
+    
+    private func emptyInstances() {
+        let inheritanceEntries = generateEmptyDataEntries(count: inheritances.count)
+        let statsEntries = generateEmptyDataEntries(count: 4)
+        let objectEntries = generateEmptyDataEntries(count: 5)
+        let importEntries = generateEmptyDataEntries(count: imports.count)
+        
+        inheritancesBarChart.updateDataEntries(dataEntries: inheritanceEntries, animated: false)
+        statsBarChart.updateDataEntries(dataEntries: statsEntries, animated: false)
+        objectsBarChart.updateDataEntries(dataEntries: objectEntries, animated: false)
+        importsBarChart.updateDataEntries(dataEntries: importEntries, animated: false)
+    }
+    
+    private func dataInstances() {
+        let inheritanceEntries = self.generateInheritanceDataEntries(count: self.inheritances.count)
+        let statsEntries = self.generateStatsDataEntries()
+        let objectEntries = self.generateObjectDataEntries()
+        let importEntries = self.generateImportsDataEntries(count: self.imports.count)
+        
+        inheritancesBarChart.updateDataEntries(dataEntries: inheritanceEntries, animated: true)
+        statsBarChart.updateDataEntries(dataEntries: statsEntries, animated: true)
+        objectsBarChart.updateDataEntries(dataEntries: objectEntries, animated: true)
+        importsBarChart.updateDataEntries(dataEntries: importEntries, animated: true)
     }
     
     private func getGithubInfo() {
@@ -46,6 +133,100 @@ class CodeAnalysisTableViewController: UITableViewController {
                     self.lastReleaseDateLabel.text = formatter2.string(from: date)
                 }
                 self.numberOfVersionsLabel.text = "\(releases.count)"
+            }
+        }
+    }
+    
+    private func generateEmptyDataEntries(count: Int) -> [DataEntry] {
+        var result: [DataEntry] = []
+        Array(0..<count).forEach {i in
+            result.append(DataEntry(color: UIColor.clear, height: 0, textValue: "0", title: ""))
+        }
+        return result
+    }
+    
+    func generateInheritanceDataEntries(count: Int) -> [DataEntry] {
+        let colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)]
+        var result: [DataEntry] = []
+        for i in 0..<count {
+            let value = inheritances[i].value //(arc4random() % 90) + 10
+            let height: Float = Float(value) / 200.0
+            
+            result.append(DataEntry(color: colors[i % colors.count], height: height, textValue: "\(value)", title: inheritances[i].name))
+        }
+        return result
+    }
+    
+    func generateStatsDataEntries() -> [DataEntry] {
+        let colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)]
+        var result: [DataEntry] = []
+        var value = (scanStats?.scanStats.longestFile.value)!
+        var height = Float(value) / 785010.0
+        result.append(DataEntry(color: colors[0], height: height, textValue: "\(value)", title: "Longest File"))
+        value = (scanStats?.scanStats.totalLinesOfCode)!
+        height =  Float(value) / 785010.0
+        result.append(DataEntry(color: colors[1], height: height, textValue: "\(value)", title: "Total Lines"))
+        value = (scanStats?.scanStats.scannedFiles)!
+        height =  Float(value) / 785010.0
+        result.append(DataEntry(color: colors[2], height: height, textValue: "\(value)", title: "Files"))
+        value = (scanStats?.scanStats.totalStrippedLinesOfCode)!
+        height =  Float(value) / 785010.0
+        result.append(DataEntry(color: colors[3], height: height, textValue: "\(value)", title: "Stripped Lines"))
+        return result
+    }
+    
+    func generateObjectDataEntries() -> [DataEntry] {
+        let colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)]
+        var result: [DataEntry] = []
+        var value = (objects?.objects.classes)!
+        var height = Float(value) / 10600.0
+        result.append(DataEntry(color: colors[0], height: height, textValue: "\(value)", title: "Classes"))
+        value = (objects?.objects.protocols)!
+        height = Float(value) / 10600.0
+        result.append(DataEntry(color: colors[1], height: height, textValue: "\(value)", title: "Protocols"))
+        value = (objects?.objects.extensions)!
+        height = Float(value) / 10600.0
+        result.append(DataEntry(color: colors[2], height: height, textValue: "\(value)", title: "Extensions"))
+        value = (objects?.objects.structs)!
+        height = Float(value) / 10600.0
+        result.append(DataEntry(color: colors[3], height: height, textValue: "\(value)", title: "Structs"))
+        value = (objects?.objects.enums)!
+        height = Float(value) / 10600.0
+        result.append(DataEntry(color: colors[4], height: height, textValue: "\(value)", title: "Enums"))
+        return result
+    }
+    
+    func generateImportsDataEntries(count: Int) -> [DataEntry] {
+        let colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)]
+        var result: [DataEntry] = []
+        for i in 0..<count {
+            let value = imports[i].value //(arc4random() % 90) + 10
+            let height: Float = Float(value) / 1900.0
+            
+            result.append(DataEntry(color: colors[i % colors.count], height: height, textValue: "\(value)", title: imports[i].name))
+        }
+        return result
+    }
+    
+    private func loadAnalysisData() {
+        if let path = Bundle.main.path(forResource: "code_analysis", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let decoder = JSONDecoder()
+                if let jsonInheritances = try? decoder.decode(Inheritances.self, from: data) {
+                    inheritances = jsonInheritances.inheritances
+                }
+                if let jsonStats = try? decoder.decode(Stats.self, from: data) {
+                    scanStats = jsonStats
+                }
+                if let jsonObjects = try? decoder.decode(Objects.self, from: data) {
+                    objects = jsonObjects
+                }
+                if let jsonImports = try? decoder.decode(Imports.self, from: data) {
+                    imports = jsonImports.imports
+                }
+            } catch {
+                onError()
             }
         }
     }

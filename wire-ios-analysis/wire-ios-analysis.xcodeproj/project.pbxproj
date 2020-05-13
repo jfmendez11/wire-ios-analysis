@@ -17,6 +17,18 @@
 		58FB62B8246A2A4800BA91C2 /* RatingAndReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62B7246A2A4700BA91C2 /* RatingAndReviewModel.swift */; };
 		58FB62BA246A319000BA91C2 /* AboutWireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62B9246A319000BA91C2 /* AboutWireViewController.swift */; };
 		58FB62BC246B305400BA91C2 /* CodeAnalysisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62BB246B305400BA91C2 /* CodeAnalysisTableViewController.swift */; };
+		58FB62BF246B795700BA91C2 /* code_analysis.json in Resources */ = {isa = PBXBuildFile; fileRef = 58FB62BE246B795700BA91C2 /* code_analysis.json */; };
+		58FB62C2246B829500BA91C2 /* BasicBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62C1246B829500BA91C2 /* BasicBarChart.swift */; };
+		58FB62C4246B82D700BA91C2 /* BasicBarChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62C3246B82D700BA91C2 /* BasicBarChartPresenter.swift */; };
+		58FB62C6246B830100BA91C2 /* BasicBarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62C5246B830100BA91C2 /* BasicBarEntry.swift */; };
+		58FB62C8246B835600BA91C2 /* BeautifulBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62C7246B835600BA91C2 /* BeautifulBarChart.swift */; };
+		58FB62CA246B839D00BA91C2 /* BeautifulBarChartPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62C9246B839D00BA91C2 /* BeautifulBarChartPresenter.swift */; };
+		58FB62CC246B840400BA91C2 /* BeautifulBarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62CB246B840400BA91C2 /* BeautifulBarEntry.swift */; };
+		58FB62D1246B867100BA91C2 /* DataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62D0246B867100BA91C2 /* DataEntry.swift */; };
+		58FB62D3246B86A300BA91C2 /* CustomSegments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62D2246B86A300BA91C2 /* CustomSegments.swift */; };
+		58FB62D5246B86D300BA91C2 /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62D4246B86D300BA91C2 /* UIBezierPathExtension.swift */; };
+		58FB62D7246B871500BA91C2 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62D6246B871500BA91C2 /* CALayerExtension.swift */; };
+		58FB62D9246B873400BA91C2 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB62D8246B873400BA91C2 /* ArrayExtension.swift */; };
 		9D05190B2467300500B02B17 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05190A2467300500B02B17 /* Utilities.swift */; };
 		9D05190D24673FB100B02B17 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05190C24673FB100B02B17 /* TabViewController.swift */; };
 		9D05190F24673FE600B02B17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05190E24673FE600B02B17 /* Constants.swift */; };
@@ -48,6 +60,18 @@
 		58FB62B7246A2A4700BA91C2 /* RatingAndReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingAndReviewModel.swift; sourceTree = "<group>"; };
 		58FB62B9246A319000BA91C2 /* AboutWireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWireViewController.swift; sourceTree = "<group>"; };
 		58FB62BB246B305400BA91C2 /* CodeAnalysisTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAnalysisTableViewController.swift; sourceTree = "<group>"; };
+		58FB62BE246B795700BA91C2 /* code_analysis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = code_analysis.json; path = ../../../../../../Desktop/google/code_analysis.json; sourceTree = "<group>"; };
+		58FB62C1246B829500BA91C2 /* BasicBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBarChart.swift; sourceTree = "<group>"; };
+		58FB62C3246B82D700BA91C2 /* BasicBarChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBarChartPresenter.swift; sourceTree = "<group>"; };
+		58FB62C5246B830100BA91C2 /* BasicBarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBarEntry.swift; sourceTree = "<group>"; };
+		58FB62C7246B835600BA91C2 /* BeautifulBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautifulBarChart.swift; sourceTree = "<group>"; };
+		58FB62C9246B839D00BA91C2 /* BeautifulBarChartPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautifulBarChartPresenter.swift; sourceTree = "<group>"; };
+		58FB62CB246B840400BA91C2 /* BeautifulBarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautifulBarEntry.swift; sourceTree = "<group>"; };
+		58FB62D0246B867100BA91C2 /* DataEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEntry.swift; sourceTree = "<group>"; };
+		58FB62D2246B86A300BA91C2 /* CustomSegments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegments.swift; sourceTree = "<group>"; };
+		58FB62D4246B86D300BA91C2 /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
+		58FB62D6246B871500BA91C2 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		58FB62D8246B873400BA91C2 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		9D05190A2467300500B02B17 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9D05190C24673FB100B02B17 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		9D05190E24673FE600B02B17 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -119,12 +143,64 @@
 		58FB62B4246A158000BA91C2 /* AboutWire */ = {
 			isa = PBXGroup;
 			children = (
+				58FB62C0246B81FE00BA91C2 /* BarChart */,
+				58FB62BD246B78BF00BA91C2 /* Resources */,
 				58FB62B5246A15B100BA91C2 /* RatingAndReviewsClient.swift */,
 				58FB62B7246A2A4700BA91C2 /* RatingAndReviewModel.swift */,
 				58FB62B9246A319000BA91C2 /* AboutWireViewController.swift */,
 				58FB62BB246B305400BA91C2 /* CodeAnalysisTableViewController.swift */,
 			);
 			path = AboutWire;
+			sourceTree = "<group>";
+		};
+		58FB62BD246B78BF00BA91C2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				58FB62BE246B795700BA91C2 /* code_analysis.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		58FB62C0246B81FE00BA91C2 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				58FB62CF246B864B00BA91C2 /* Shared */,
+				58FB62CE246B861B00BA91C2 /* BueatifulBarChart */,
+				58FB62CD246B85F800BA91C2 /* BasicBarChart */,
+			);
+			path = BarChart;
+			sourceTree = "<group>";
+		};
+		58FB62CD246B85F800BA91C2 /* BasicBarChart */ = {
+			isa = PBXGroup;
+			children = (
+				58FB62C1246B829500BA91C2 /* BasicBarChart.swift */,
+				58FB62C3246B82D700BA91C2 /* BasicBarChartPresenter.swift */,
+				58FB62C5246B830100BA91C2 /* BasicBarEntry.swift */,
+			);
+			path = BasicBarChart;
+			sourceTree = "<group>";
+		};
+		58FB62CE246B861B00BA91C2 /* BueatifulBarChart */ = {
+			isa = PBXGroup;
+			children = (
+				58FB62C7246B835600BA91C2 /* BeautifulBarChart.swift */,
+				58FB62C9246B839D00BA91C2 /* BeautifulBarChartPresenter.swift */,
+				58FB62CB246B840400BA91C2 /* BeautifulBarEntry.swift */,
+			);
+			path = BueatifulBarChart;
+			sourceTree = "<group>";
+		};
+		58FB62CF246B864B00BA91C2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				58FB62D0246B867100BA91C2 /* DataEntry.swift */,
+				58FB62D2246B86A300BA91C2 /* CustomSegments.swift */,
+				58FB62D4246B86D300BA91C2 /* UIBezierPathExtension.swift */,
+				58FB62D6246B871500BA91C2 /* CALayerExtension.swift */,
+				58FB62D8246B873400BA91C2 /* ArrayExtension.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		9D0519102467406B00B02B17 /* Utilities */ = {
@@ -217,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58FB62BF246B795700BA91C2 /* code_analysis.json in Resources */,
 				58FB629A245E369400BA91C2 /* LaunchScreen.storyboard in Resources */,
 				58FB6297245E369400BA91C2 /* Assets.xcassets in Resources */,
 				58FB6295245E369100BA91C2 /* Main.storyboard in Resources */,
@@ -241,11 +318,22 @@
 				9D05190D24673FB100B02B17 /* TabViewController.swift in Sources */,
 				58FB62BC246B305400BA91C2 /* CodeAnalysisTableViewController.swift in Sources */,
 				9D3922C9246722850031A9FF /* StartViewController.swift in Sources */,
+				58FB62C6246B830100BA91C2 /* BasicBarEntry.swift in Sources */,
 				58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */,
 				58FB62BA246A319000BA91C2 /* AboutWireViewController.swift in Sources */,
 				9D05190F24673FE600B02B17 /* Constants.swift in Sources */,
+				58FB62C2246B829500BA91C2 /* BasicBarChart.swift in Sources */,
+				58FB62D1246B867100BA91C2 /* DataEntry.swift in Sources */,
+				58FB62D5246B86D300BA91C2 /* UIBezierPathExtension.swift in Sources */,
+				58FB62D3246B86A300BA91C2 /* CustomSegments.swift in Sources */,
+				58FB62C4246B82D700BA91C2 /* BasicBarChartPresenter.swift in Sources */,
+				58FB62CC246B840400BA91C2 /* BeautifulBarEntry.swift in Sources */,
+				58FB62CA246B839D00BA91C2 /* BeautifulBarChartPresenter.swift in Sources */,
+				58FB62D7246B871500BA91C2 /* CALayerExtension.swift in Sources */,
 				58FB62B6246A15B100BA91C2 /* RatingAndReviewsClient.swift in Sources */,
 				9D05190B2467300500B02B17 /* Utilities.swift in Sources */,
+				58FB62D9246B873400BA91C2 /* ArrayExtension.swift in Sources */,
+				58FB62C8246B835600BA91C2 /* BeautifulBarChart.swift in Sources */,
 				58FB6290245E369100BA91C2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
