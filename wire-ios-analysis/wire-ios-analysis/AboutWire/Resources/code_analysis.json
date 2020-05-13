@@ -1,0 +1,471 @@
+{
+    "inheritances" : [
+      {
+        "name" : "UIViewController",
+        "value" : 123
+      },
+      {
+        "name" : "UIView",
+        "value" : 134
+      },
+      {
+        "name" : "SwiftUI.View",
+        "value" : 0
+      }
+    ],
+    "scanStats" : {
+      "longestFile" : {
+        "name" : "generated_swift_names_messages.pb.swift",
+        "value" : 28359
+      },
+      "totalLinesOfCode" : 785001,
+      "scannedFiles" : 3104,
+      "totalStrippedLinesOfCode" : 687498,
+      "longestType" : {
+        "name" : "ProtobufUnittestGenerated_GeneratedSwiftReservedEnums",
+        "value" : 34364
+      }
+    },
+    "objects" : {
+      "classes" : 2278,
+      "protocols" : 517,
+      "extensions" : 10637,
+      "structs" : 1125,
+      "enums" : 428
+    },
+    "imports" : [
+      {
+        "name" : "Foundation",
+        "value" : 1884
+      },
+      {
+        "name" : "UIKit",
+        "value" : 803
+      },
+      {
+        "name" : "XCTest",
+        "value" : 651
+      },
+      {
+        "name" : "WireDataModel",
+        "value" : 524
+      },
+      {
+        "name" : "WireSyncEngine",
+        "value" : 364
+      },
+      {
+        "name" : "Wire",
+        "value" : 286
+      },
+      {
+        "name" : "SwiftProtobuf",
+        "value" : 188
+      },
+      {
+        "name" : "WireCommonComponents",
+        "value" : 148
+      },
+      {
+        "name" : "Cartography",
+        "value" : 146
+      },
+      {
+        "name" : "WireSystem",
+        "value" : 101
+      },
+      {
+        "name" : "WireUtilities",
+        "value" : 98
+      },
+      {
+        "name" : "WireTesting",
+        "value" : 96
+      },
+      {
+        "name" : "SnapshotTesting",
+        "value" : 71
+      },
+      {
+        "name" : "WireRequestStrategy",
+        "value" : 62
+      },
+      {
+        "name" : "avs",
+        "value" : 53
+      },
+      {
+        "name" : "WireTransport",
+        "value" : 50
+      },
+      {
+        "name" : "WireLinkPreview",
+        "value" : 47
+      },
+      {
+        "name" : "WireCryptobox",
+        "value" : 29
+      },
+      {
+        "name" : "DifferenceKit",
+        "value" : 28
+      },
+      {
+        "name" : "MobileCoreServices",
+        "value" : 27
+      },
+      {
+        "name" : "Cocoa",
+        "value" : 22
+      },
+      {
+        "name" : "UserNotifications",
+        "value" : 20
+      },
+      {
+        "name" : "Down",
+        "value" : 19
+      },
+      {
+        "name" : "SwiftProtobufPluginLibrary",
+        "value" : 19
+      },
+      {
+        "name" : "AppKit",
+        "value" : 18
+      },
+      {
+        "name" : "AppCenter",
+        "value" : 17
+      },
+      {
+        "name" : "AVFoundation",
+        "value" : 16
+      },
+      {
+        "name" : "Quick",
+        "value" : 16
+      },
+      {
+        "name" : "Ziphy",
+        "value" : 16
+      },
+      {
+        "name" : "Nimble",
+        "value" : 16
+      },
+      {
+        "name" : "AppCenterCrashes",
+        "value" : 15
+      },
+      {
+        "name" : "Photos",
+        "value" : 15
+      },
+      {
+        "name" : "WireShareEngine",
+        "value" : 14
+      },
+      {
+        "name" : "CoreData",
+        "value" : 14
+      },
+      {
+        "name" : "AppCenterAnalytics",
+        "value" : 13
+      },
+      {
+        "name" : "FLAnimatedImage",
+        "value" : 13
+      },
+      {
+        "name" : "libcmark",
+        "value" : 11
+      },
+      {
+        "name" : "PackageDescription",
+        "value" : 11
+      },
+      {
+        "name" : "WireMockTransport",
+        "value" : 11
+      },
+      {
+        "name" : "SafariServices",
+        "value" : 11
+      },
+      {
+        "name" : "WireProtos",
+        "value" : 10
+      },
+      {
+        "name" : "WireImages",
+        "value" : 10
+      },
+      {
+        "name" : "Contacts",
+        "value" : 9
+      },
+      {
+        "name" : "AppCenterDistribute",
+        "value" : 8
+      },
+      {
+        "name" : "CoreLocation",
+        "value" : 7
+      },
+      {
+        "name" : "MapKit",
+        "value" : 6
+      },
+      {
+        "name" : "PushKit",
+        "value" : 6
+      },
+      {
+        "name" : "FormatterKit",
+        "value" : 5
+      },
+      {
+        "name" : "CoreTelephony",
+        "value" : 5
+      },
+      {
+        "name" : "ZipArchive",
+        "value" : 5
+      },
+      {
+        "name" : "WebKit",
+        "value" : 5
+      },
+      {
+        "name" : "LocalAuthentication",
+        "value" : 4
+      },
+      {
+        "name" : "FBSnapshotTestCase",
+        "value" : 4
+      },
+      {
+        "name" : "CallKit",
+        "value" : 4
+      },
+      {
+        "name" : "libPhoneNumberiOS",
+        "value" : 4
+      },
+      {
+        "name" : "AppCenterPush",
+        "value" : 4
+      },
+      {
+        "name" : "MessageUI",
+        "value" : 4
+      },
+      {
+        "name" : "AVKit",
+        "value" : 4
+      },
+      {
+        "name" : "ImageIO",
+        "value" : 4
+      },
+      {
+        "name" : "MSAL",
+        "value" : 3
+      },
+      {
+        "name" : "AppCenterData",
+        "value" : 3
+      },
+      {
+        "name" : "AddressBook",
+        "value" : 3
+      },
+      {
+        "name" : "SceneKit",
+        "value" : 3
+      },
+      {
+        "name" : "SpriteKit",
+        "value" : 3
+      },
+      {
+        "name" : "WatchKit",
+        "value" : 3
+      },
+      {
+        "name" : "CoreGraphics",
+        "value" : 3
+      },
+      {
+        "name" : "AppCenterAuth",
+        "value" : 3
+      },
+      {
+        "name" : "IGListKit",
+        "value" : 2
+      },
+      {
+        "name" : "PINCache",
+        "value" : 2
+      },
+      {
+        "name" : "WireCanvas",
+        "value" : 2
+      },
+      {
+        "name" : "Darwin",
+        "value" : 2
+      },
+      {
+        "name" : "os.log",
+        "value" : 2
+      },
+      {
+        "name" : "DeepDiff",
+        "value" : 2
+      },
+      {
+        "name" : "Social",
+        "value" : 2
+      },
+      {
+        "name" : "NotificationCenter",
+        "value" : 2
+      },
+      {
+        "name" : "MediaPlayer",
+        "value" : 2
+      },
+      {
+        "name" : "SystemConfiguration",
+        "value" : 2
+      },
+      {
+        "name" : "PassKit",
+        "value" : 2
+      },
+      {
+        "name" : "QuartzCore",
+        "value" : 2
+      },
+      {
+        "name" : "FoundationNetworking",
+        "value" : 2
+      },
+      {
+        "name" : "Intents",
+        "value" : 2
+      },
+      {
+        "name" : "Differentiator",
+        "value" : 2
+      },
+      {
+        "name" : "HTMLString",
+        "value" : 2
+      },
+      {
+        "name" : "Swift",
+        "value" : 2
+      },
+      {
+        "name" : "libxml2",
+        "value" : 1
+      },
+      {
+        "name" : "SwiftExample",
+        "value" : 1
+      },
+      {
+        "name" : "AwesomeTableAnimationCalculator",
+        "value" : 1
+      },
+      {
+        "name" : "CocoaLumberjackSwift",
+        "value" : 1
+      },
+      {
+        "name" : "Glibc",
+        "value" : 1
+      },
+      {
+        "name" : "WireSyncEngine ",
+        "value" : 1
+      },
+      {
+        "name" : "AudioToolbox",
+        "value" : 1
+      },
+      {
+        "name" : "ZMUtilities",
+        "value" : 1
+      },
+      {
+        "name" : "OCMock",
+        "value" : 1
+      },
+      {
+        "name" : "WireTransport.ZMRequestCancellation",
+        "value" : 1
+      },
+      {
+        "name" : "Differ",
+        "value" : 1
+      },
+      {
+        "name" : "SnapshotTestingTests",
+        "value" : 1
+      },
+      {
+        "name" : "Darwin.C",
+        "value" : 1
+      },
+      {
+        "name" : "SSZipArchive",
+        "value" : 1
+      },
+      {
+        "name" : "SwiftProtobufTests",
+        "value" : 1
+      },
+      {
+        "name" : "WireTransport.Testing",
+        "value" : 1
+      },
+      {
+        "name" : "AuthenticationServices",
+        "value" : 1
+      },
+      {
+        "name" : "DifferenceKitTests",
+        "value" : 1
+      },
+      {
+        "name" : "SwiftProtobufPluginLibraryTests",
+        "value" : 1
+      },
+      {
+        "name" : "HTMLStringTests",
+        "value" : 1
+      },
+      {
+        "name" : "FlexibleDiff",
+        "value" : 1
+      },
+      {
+        "name" : "Dwifft",
+        "value" : 1
+      },
+      {
+        "name" : "PlaygroundSupport",
+        "value" : 1
+      },
+      {
+        "name" : "Dispatch",
+        "value" : 1
+      }
+    ]
+  }
+  
