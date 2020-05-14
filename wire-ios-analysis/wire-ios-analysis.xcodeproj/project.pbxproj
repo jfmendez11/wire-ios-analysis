@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		58749796246C890B00FD8008 /* code_analysis.json in Resources */ = {isa = PBXBuildFile; fileRef = 58749795246C890B00FD8008 /* code_analysis.json */; };
 		58749798246CF35900FD8008 /* DependenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58749797246CF35900FD8008 /* DependenciesViewController.swift */; };
+		5874979A246D11F100FD8008 /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58749799246D11F100FD8008 /* Expandable.swift */; };
 		58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB628D245E369100BA91C2 /* AppDelegate.swift */; };
 		58FB6290245E369100BA91C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB628F245E369100BA91C2 /* SceneDelegate.swift */; };
 		58FB6295245E369100BA91C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FB6293245E369100BA91C2 /* Main.storyboard */; };
@@ -35,10 +36,6 @@
 		9D05190D24673FB100B02B17 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05190C24673FB100B02B17 /* TabViewController.swift */; };
 		9D05190F24673FE600B02B17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D05190E24673FE600B02B17 /* Constants.swift */; };
 		9D3922C9246722850031A9FF /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3922C82467227E0031A9FF /* StartViewController.swift */; };
-		9D8BA792246CBEF200220AF8 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BA78E246CBEF100220AF8 /* CardTableViewCell.swift */; };
-		9D8BA793246CBEF200220AF8 /* DropShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BA78F246CBEF100220AF8 /* DropShadowView.swift */; };
-		9D8BA794246CBEF200220AF8 /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8BA790246CBEF200220AF8 /* CardTableViewCell.xib */; };
-		9D8BA795246CBEF200220AF8 /* UIUXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BA791246CBEF200220AF8 /* UIUXViewController.swift */; };
 		9D8BA799246CC52900220AF8 /* UIDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BA798246CC52900220AF8 /* UIDetailViewController.swift */; };
 		9D8BA79B246CE52D00220AF8 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BA79A246CE52D00220AF8 /* Section.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +53,7 @@
 /* Begin PBXFileReference section */
 		58749795246C890B00FD8008 /* code_analysis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = code_analysis.json; sourceTree = "<group>"; };
 		58749797246CF35900FD8008 /* DependenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesViewController.swift; sourceTree = "<group>"; };
+		58749799246D11F100FD8008 /* Expandable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
 		58FB628A245E369100BA91C2 /* wire-ios-analysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wire-ios-analysis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FB628D245E369100BA91C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58FB628F245E369100BA91C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,10 +84,6 @@
 		9D05190C24673FB100B02B17 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		9D05190E24673FE600B02B17 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9D3922C82467227E0031A9FF /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		9D8BA78E246CBEF100220AF8 /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardTableViewCell.swift; path = "../../../../../../.Trash/wire-ios-analysis/wire-ios-analysis/UI UX/CardTableViewCell.swift"; sourceTree = "<group>"; };
-		9D8BA78F246CBEF100220AF8 /* DropShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DropShadowView.swift; path = "../../../../../../.Trash/wire-ios-analysis/wire-ios-analysis/UI UX/DropShadowView.swift"; sourceTree = "<group>"; };
-		9D8BA790246CBEF200220AF8 /* CardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CardTableViewCell.xib; path = "../../../../../../.Trash/wire-ios-analysis/wire-ios-analysis/UI UX/CardTableViewCell.xib"; sourceTree = "<group>"; };
-		9D8BA791246CBEF200220AF8 /* UIUXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIUXViewController.swift; path = "../../../../../../.Trash/wire-ios-analysis/wire-ios-analysis/UI UX/UIUXViewController.swift"; sourceTree = "<group>"; };
 		9D8BA798246CC52900220AF8 /* UIDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDetailViewController.swift; sourceTree = "<group>"; };
 		9D8BA79A246CE52D00220AF8 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,11 +228,8 @@
 		9D8BA785246CBE7F00220AF8 /* UIUX */ = {
 			isa = PBXGroup;
 			children = (
-				9D8BA78E246CBEF100220AF8 /* CardTableViewCell.swift */,
-				9D8BA790246CBEF200220AF8 /* CardTableViewCell.xib */,
-				9D8BA78F246CBEF100220AF8 /* DropShadowView.swift */,
-				9D8BA791246CBEF200220AF8 /* UIUXViewController.swift */,
 				9D8BA798246CC52900220AF8 /* UIDetailViewController.swift */,
+				58749799246D11F100FD8008 /* Expandable.swift */,
 				9D8BA79A246CE52D00220AF8 /* Section.swift */,
 			);
 			path = UIUX;
@@ -329,7 +320,6 @@
 				58FB629A245E369400BA91C2 /* LaunchScreen.storyboard in Resources */,
 				58FB6297245E369400BA91C2 /* Assets.xcassets in Resources */,
 				58FB6295245E369100BA91C2 /* Main.storyboard in Resources */,
-				9D8BA794246CBEF200220AF8 /* CardTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,25 +341,23 @@
 				9D05190D24673FB100B02B17 /* TabViewController.swift in Sources */,
 				58FB62BC246B305400BA91C2 /* CodeAnalysisTableViewController.swift in Sources */,
 				9D3922C9246722850031A9FF /* StartViewController.swift in Sources */,
-				9D8BA793246CBEF200220AF8 /* DropShadowView.swift in Sources */,
 				58FB62C6246B830100BA91C2 /* BasicBarEntry.swift in Sources */,
 				58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */,
 				58FB62BA246A319000BA91C2 /* AboutWireViewController.swift in Sources */,
 				58749798246CF35900FD8008 /* DependenciesViewController.swift in Sources */,
 				9D05190F24673FE600B02B17 /* Constants.swift in Sources */,
+				5874979A246D11F100FD8008 /* Expandable.swift in Sources */,
 				9D8BA79B246CE52D00220AF8 /* Section.swift in Sources */,
 				58FB62C2246B829500BA91C2 /* BasicBarChart.swift in Sources */,
 				58FB62D1246B867100BA91C2 /* DataEntry.swift in Sources */,
 				58FB62D5246B86D300BA91C2 /* UIBezierPathExtension.swift in Sources */,
 				58FB62D3246B86A300BA91C2 /* CustomSegments.swift in Sources */,
 				58FB62C4246B82D700BA91C2 /* BasicBarChartPresenter.swift in Sources */,
-				9D8BA795246CBEF200220AF8 /* UIUXViewController.swift in Sources */,
 				58FB62CC246B840400BA91C2 /* BeautifulBarEntry.swift in Sources */,
 				58FB62DB246BBA7D00BA91C2 /* ArchitectureViewController.swift in Sources */,
 				58FB62CA246B839D00BA91C2 /* BeautifulBarChartPresenter.swift in Sources */,
 				58FB62D7246B871500BA91C2 /* CALayerExtension.swift in Sources */,
 				58FB62B6246A15B100BA91C2 /* RatingAndReviewsClient.swift in Sources */,
-				9D8BA792246CBEF200220AF8 /* CardTableViewCell.swift in Sources */,
 				9D8BA799246CC52900220AF8 /* UIDetailViewController.swift in Sources */,
 				9D05190B2467300500B02B17 /* Utilities.swift in Sources */,
 				58FB62D9246B873400BA91C2 /* ArrayExtension.swift in Sources */,

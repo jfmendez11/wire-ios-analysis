@@ -10,7 +10,7 @@
         <!--UI / UX-->
         <scene sceneID="tax-TY-1gQ">
             <objects>
-                <viewController id="Dc2-7T-ctm" customClass="UIUXViewController" customModule="wire_ios_analysis" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dc2-7T-ctm" customClass="UITableViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0pG-8t-nZx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,7 +228,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2z-Sn-YaM" userLabel="Frequency">
-                                                <rect key="frame" x="8" y="424" width="359" height="250"/>
+                                                <rect key="frame" x="8" y="424" width="359" height="300"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usage Frequency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxO-G1-jsK">
                                                         <rect key="frame" x="8" y="8" width="343" height="30"/>
@@ -240,13 +240,13 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYT-gz-mPB" customClass="BeautifulBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="46" width="343" height="196"/>
+                                                        <rect key="frame" x="8" y="46" width="343" height="246"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="250" id="4fc-a4-ipP"/>
+                                                    <constraint firstAttribute="height" constant="300" id="4fc-a4-ipP"/>
                                                     <constraint firstItem="qYT-gz-mPB" firstAttribute="top" secondItem="BxO-G1-jsK" secondAttribute="bottom" constant="8" id="7Sx-YF-UL1"/>
                                                     <constraint firstAttribute="trailing" secondItem="BxO-G1-jsK" secondAttribute="trailing" constant="8" id="A81-eJ-klu"/>
                                                     <constraint firstAttribute="bottom" secondItem="qYT-gz-mPB" secondAttribute="bottom" constant="8" id="FVm-Wz-DyG"/>
