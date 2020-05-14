@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		58749796246C890B00FD8008 /* code_analysis.json in Resources */ = {isa = PBXBuildFile; fileRef = 58749795246C890B00FD8008 /* code_analysis.json */; };
 		58749798246CF35900FD8008 /* DependenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58749797246CF35900FD8008 /* DependenciesViewController.swift */; };
-		5874979A246D11F100FD8008 /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58749799246D11F100FD8008 /* Expandable.swift */; };
 		5874979C246D16C000FD8008 /* DependciesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5874979B246D16C000FD8008 /* DependciesTableViewCell.swift */; };
 		5874979E246D24AD00FD8008 /* DependencyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5874979D246D24AD00FD8008 /* DependencyDetailViewController.swift */; };
 		58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB628D245E369100BA91C2 /* AppDelegate.swift */; };
@@ -40,6 +39,10 @@
 		9D3922C9246722850031A9FF /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3922C82467227E0031A9FF /* StartViewController.swift */; };
 		9D8BA799246CC52900220AF8 /* UIDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BA798246CC52900220AF8 /* UIDetailViewController.swift */; };
 		9D8BA79B246CE52D00220AF8 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BA79A246CE52D00220AF8 /* Section.swift */; };
+		9D8C698F246D70E000F5E9AA /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C698C246D70E000F5E9AA /* CardTableViewCell.swift */; };
+		9D8C6990246D70E000F5E9AA /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8C698D246D70E000F5E9AA /* CardTableViewCell.xib */; };
+		9D8C6991246D70E000F5E9AA /* DropShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C698E246D70E000F5E9AA /* DropShadowView.swift */; };
+		9D8C6993246D70EA00F5E9AA /* UIUXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C6992246D70EA00F5E9AA /* UIUXViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +58,6 @@
 /* Begin PBXFileReference section */
 		58749795246C890B00FD8008 /* code_analysis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = code_analysis.json; sourceTree = "<group>"; };
 		58749797246CF35900FD8008 /* DependenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesViewController.swift; sourceTree = "<group>"; };
-		58749799246D11F100FD8008 /* Expandable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
 		5874979B246D16C000FD8008 /* DependciesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependciesTableViewCell.swift; sourceTree = "<group>"; };
 		5874979D246D24AD00FD8008 /* DependencyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyDetailViewController.swift; sourceTree = "<group>"; };
 		58FB628A245E369100BA91C2 /* wire-ios-analysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wire-ios-analysis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,10 @@
 		9D3922C82467227E0031A9FF /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		9D8BA798246CC52900220AF8 /* UIDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDetailViewController.swift; sourceTree = "<group>"; };
 		9D8BA79A246CE52D00220AF8 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		9D8C698C246D70E000F5E9AA /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		9D8C698D246D70E000F5E9AA /* CardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
+		9D8C698E246D70E000F5E9AA /* DropShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropShadowView.swift; sourceTree = "<group>"; };
+		9D8C6992246D70EA00F5E9AA /* UIUXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUXViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,8 +240,11 @@
 		9D8BA785246CBE7F00220AF8 /* UIUX */ = {
 			isa = PBXGroup;
 			children = (
+				9D8C6992246D70EA00F5E9AA /* UIUXViewController.swift */,
+				9D8C698C246D70E000F5E9AA /* CardTableViewCell.swift */,
+				9D8C698D246D70E000F5E9AA /* CardTableViewCell.xib */,
+				9D8C698E246D70E000F5E9AA /* DropShadowView.swift */,
 				9D8BA798246CC52900220AF8 /* UIDetailViewController.swift */,
-				58749799246D11F100FD8008 /* Expandable.swift */,
 				9D8BA79A246CE52D00220AF8 /* Section.swift */,
 			);
 			path = UIUX;
@@ -324,6 +333,7 @@
 			files = (
 				58749796246C890B00FD8008 /* code_analysis.json in Resources */,
 				58FB629A245E369400BA91C2 /* LaunchScreen.storyboard in Resources */,
+				9D8C6990246D70E000F5E9AA /* CardTableViewCell.xib in Resources */,
 				58FB6297245E369400BA91C2 /* Assets.xcassets in Resources */,
 				58FB6295245E369100BA91C2 /* Main.storyboard in Resources */,
 			);
@@ -353,11 +363,12 @@
 				58749798246CF35900FD8008 /* DependenciesViewController.swift in Sources */,
 				5874979C246D16C000FD8008 /* DependciesTableViewCell.swift in Sources */,
 				9D05190F24673FE600B02B17 /* Constants.swift in Sources */,
-				5874979A246D11F100FD8008 /* Expandable.swift in Sources */,
 				9D8BA79B246CE52D00220AF8 /* Section.swift in Sources */,
+				9D8C6993246D70EA00F5E9AA /* UIUXViewController.swift in Sources */,
 				58FB62C2246B829500BA91C2 /* BasicBarChart.swift in Sources */,
 				58FB62D1246B867100BA91C2 /* DataEntry.swift in Sources */,
 				58FB62D5246B86D300BA91C2 /* UIBezierPathExtension.swift in Sources */,
+				9D8C6991246D70E000F5E9AA /* DropShadowView.swift in Sources */,
 				58FB62D3246B86A300BA91C2 /* CustomSegments.swift in Sources */,
 				5874979E246D24AD00FD8008 /* DependencyDetailViewController.swift in Sources */,
 				58FB62C4246B82D700BA91C2 /* BasicBarChartPresenter.swift in Sources */,
@@ -371,6 +382,7 @@
 				58FB62D9246B873400BA91C2 /* ArrayExtension.swift in Sources */,
 				58FB62C8246B835600BA91C2 /* BeautifulBarChart.swift in Sources */,
 				58FB6290245E369100BA91C2 /* SceneDelegate.swift in Sources */,
+				9D8C698F246D70E000F5E9AA /* CardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

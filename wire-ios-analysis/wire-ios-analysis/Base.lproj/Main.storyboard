@@ -10,7 +10,7 @@
         <!--UI / UX-->
         <scene sceneID="tax-TY-1gQ">
             <objects>
-                <viewController id="Dc2-7T-ctm" customClass="UITableViewController" sceneMemberID="viewController">
+                <viewController id="Dc2-7T-ctm" customClass="UIUXViewController" customModule="wire_ios_analysis" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0pG-8t-nZx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="tableView" destination="n16-1b-BvT" id="bOJ-47-j4F"/>
+                        <outlet property="tableView" destination="n16-1b-BvT" id="2HG-Uq-QAT"/>
                         <segue destination="STZ-82-gP5" kind="show" identifier="uiDetail" id="3kA-Le-7ee"/>
                     </connections>
                 </viewController>
@@ -130,7 +130,7 @@
                     <navigationItem key="navigationItem" id="ist-mW-2FS"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <outlet property="imageView" destination="3TX-Mi-fCi" id="e52-kG-0yr"/>
+                        <outlet property="imageView" destination="3TX-Mi-fCi" id="Jyd-lE-oW0"/>
                         <outlet property="labelDescription" destination="bca-l9-lCf" id="FK8-cu-3dg"/>
                         <outlet property="labelTitle" destination="h7w-7o-l5u" id="5ui-vc-2hT"/>
                     </connections>
