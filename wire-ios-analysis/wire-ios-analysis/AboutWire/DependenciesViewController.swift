@@ -5,12 +5,15 @@
 //  Created by Juan Felipe Méndez on 13/05/20.
 //  Copyright © 2020 Juan Felipe Méndez. All rights reserved.
 //
-
 import UIKit
 
 class DependenciesViewController: UIViewController {
     @IBOutlet weak var overviewTextLabel: UILabel!
     @IBOutlet weak var frequencyBarChart: BeautifulBarChart!
+    @IBOutlet weak var dependenciesTable: UITableView!
+    
+    let cellReuseIdentifier = "dependencyCell"
+    var selectedRepo: String?
     
     var imports = [Import]()
     
@@ -18,12 +21,18 @@ class DependenciesViewController: UIViewController {
     
     let dependencyRepoName = ["wire-ios-sync-engine", "wire-ios-data-model", "wire-ios-request-strategy", "wire-ios-transport", "wire-ios-mock-transport", "wire-ios-share-engine", "wire-ios-system", "wire-ios-utilities", "wire-ios-canvas", "wire-ios-testing", "wire-ios-cryptobox", "wire-ios-images", "wire-ios-link-preview", "wire-ios-protos", "wire-ios-ziphy", "avs-ios-binaries"]
     
+    let repoDescription = ["wire-ios-sync-engine", "wire-ios-data-model", "wire-ios-request-strategy", "wire-ios-transport", "wire-ios-mock-transport", "wire-ios-share-engine", "wire-ios-system", "wire-ios-utilities", "wire-ios-canvas", "wire-ios-testing", "wire-ios-cryptobox", "wire-ios-images", "wire-ios-link-preview", "wire-ios-protos", "wire-ios-ziphy", "avs-ios-binaries"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         overviewTextLabel.numberOfLines = 0
         overviewTextLabel.textAlignment = .justified
         overviewTextLabel.text = getOverviewText()
         // Do any additional setup after loading the view.
+        dependenciesTable.delegate = self
+        dependenciesTable.dataSource = self
+        dependenciesTable.reloadData()
+        
         self.loadFrequencyData()
     }
     
@@ -79,15 +88,30 @@ class DependenciesViewController: UIViewController {
             }
         }
     }
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        switch segue.identifier ?? "" {
+            case "dependencyToDetail":
+                guard let detailVC = segue.destination as? DependencyDetailViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                guard let selectedCell = sender as? DependciesTableViewCell else {
+                    fatalError("Unexpected sender: \(String(describing: sender))")
+                }
+                guard let indexPath = dependenciesTable.indexPath(for: selectedCell) else {
+                    fatalError("The selected cell is not being displayed by the table")
+                }
+                detailVC.repoName = dependencyRepoName[indexPath.row]
+                detailVC.descriptionText = repoDescription[indexPath.row]
+            default:
+            fatalError("Unexpected segue identifier; \(String(describing: segue.identifier))")
+        }
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }
 
@@ -98,5 +122,48 @@ extension DependenciesViewController: RequestDelegate {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
+    }
+}
+
+extension DependenciesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //selectedRepo = dependencyRepoName[indexPath.row]
+        ///TODO: performSegue(withIdentifier: "pointToInfo", sender: self)
+    }
+}
+
+extension DependenciesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dependencyRepoName.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? DependciesTableViewCell else {
+             fatalError("The dequeued cell is not an instance of RouteTableViewCell.")
+        }
+        let name = dependencyRepoName[indexPath.row]
+        cell.dependencyNameLabel.text = name
+        return cell
+    }
+    
+    /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            pointsOfInterest.remove(at: indexPath.row)
+            routeTableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 84
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }*/
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 41
     }
 }
