@@ -42,6 +42,158 @@
             </objects>
             <point key="canvasLocation" x="-1702" y="1683"/>
         </scene>
+        <!--Dependencies and Libreries-->
+        <scene sceneID="Ywo-QD-fgf">
+            <objects>
+                <viewController id="oHh-qq-1C4" customClass="DependenciesViewController" customModule="wire_ios_analysis" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oVO-u4-MVm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUE-36-Jn9">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idt-TG-fRA" userLabel="Container view">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDM-7S-fJ2" userLabel="Overview Container">
+                                                <rect key="frame" x="8" y="8" width="359" height="200"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8n-hZ-DtW">
+                                                        <rect key="frame" x="8" y="8" width="343" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="sZX-pp-7fr"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="overview text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBs-Rj-eac">
+                                                        <rect key="frame" x="8" y="46" width="343" height="146"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="K8n-hZ-DtW" firstAttribute="top" secondItem="XDM-7S-fJ2" secondAttribute="top" constant="8" id="841-aL-yCg"/>
+                                                    <constraint firstAttribute="height" constant="200" id="F7P-le-Rce"/>
+                                                    <constraint firstItem="XBs-Rj-eac" firstAttribute="leading" secondItem="XDM-7S-fJ2" secondAttribute="leading" constant="8" id="Lfk-da-7xF"/>
+                                                    <constraint firstItem="K8n-hZ-DtW" firstAttribute="leading" secondItem="XDM-7S-fJ2" secondAttribute="leading" constant="8" id="MUs-R1-TI7"/>
+                                                    <constraint firstItem="XBs-Rj-eac" firstAttribute="top" secondItem="K8n-hZ-DtW" secondAttribute="bottom" constant="8" id="TMY-bW-2js"/>
+                                                    <constraint firstAttribute="trailing" secondItem="K8n-hZ-DtW" secondAttribute="trailing" constant="8" id="gdG-AS-FZC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XBs-Rj-eac" secondAttribute="trailing" constant="8" id="v1m-vM-f7s"/>
+                                                    <constraint firstAttribute="bottom" secondItem="XBs-Rj-eac" secondAttribute="bottom" constant="8" id="y58-ps-ola"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQr-qC-ChW" userLabel="Dependencies Diagram">
+                                                <rect key="frame" x="8" y="216" width="359" height="200"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dependencies" translatesAutoresizingMaskIntoConstraints="NO" id="2DE-Zg-Ngy">
+                                                        <rect key="frame" x="8" y="8" width="343" height="184"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="2DE-Zg-Ngy" firstAttribute="top" secondItem="uQr-qC-ChW" secondAttribute="top" constant="8" id="5Xg-Cd-Vtj"/>
+                                                    <constraint firstAttribute="bottom" secondItem="2DE-Zg-Ngy" secondAttribute="bottom" constant="8" id="JWb-3K-VOs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="2DE-Zg-Ngy" secondAttribute="trailing" constant="8" id="M6k-gH-utI"/>
+                                                    <constraint firstAttribute="height" constant="200" id="RTp-Ks-0Qc"/>
+                                                    <constraint firstItem="2DE-Zg-Ngy" firstAttribute="leading" secondItem="uQr-qC-ChW" secondAttribute="leading" constant="8" id="sQZ-es-a2k"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C2z-Sn-YaM" userLabel="Frequency">
+                                                <rect key="frame" x="8" y="424" width="359" height="250"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usage Frequency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxO-G1-jsK">
+                                                        <rect key="frame" x="8" y="8" width="343" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="7Z3-8h-lTD"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYT-gz-mPB" customClass="BeautifulBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="46" width="343" height="196"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="4fc-a4-ipP"/>
+                                                    <constraint firstItem="qYT-gz-mPB" firstAttribute="top" secondItem="BxO-G1-jsK" secondAttribute="bottom" constant="8" id="7Sx-YF-UL1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BxO-G1-jsK" secondAttribute="trailing" constant="8" id="A81-eJ-klu"/>
+                                                    <constraint firstAttribute="bottom" secondItem="qYT-gz-mPB" secondAttribute="bottom" constant="8" id="FVm-Wz-DyG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="qYT-gz-mPB" secondAttribute="trailing" constant="8" id="YLO-ME-gzB"/>
+                                                    <constraint firstItem="qYT-gz-mPB" firstAttribute="leading" secondItem="C2z-Sn-YaM" secondAttribute="leading" constant="8" id="ePq-eU-Dc2"/>
+                                                    <constraint firstItem="BxO-G1-jsK" firstAttribute="top" secondItem="C2z-Sn-YaM" secondAttribute="top" constant="8" id="mVb-cg-hMr"/>
+                                                    <constraint firstItem="BxO-G1-jsK" firstAttribute="leading" secondItem="C2z-Sn-YaM" secondAttribute="leading" constant="8" id="oRs-Dx-qiU"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1000" id="KF6-im-Rex"/>
+                                            <constraint firstAttribute="trailing" secondItem="C2z-Sn-YaM" secondAttribute="trailing" constant="8" id="NGz-YS-VaE"/>
+                                            <constraint firstItem="C2z-Sn-YaM" firstAttribute="top" secondItem="uQr-qC-ChW" secondAttribute="bottom" constant="8" id="Pyv-Hk-gDo"/>
+                                            <constraint firstItem="uQr-qC-ChW" firstAttribute="leading" secondItem="idt-TG-fRA" secondAttribute="leading" constant="8" id="ROq-r3-qto"/>
+                                            <constraint firstAttribute="trailing" secondItem="XDM-7S-fJ2" secondAttribute="trailing" constant="8" id="T27-6j-1Wt"/>
+                                            <constraint firstItem="C2z-Sn-YaM" firstAttribute="leading" secondItem="idt-TG-fRA" secondAttribute="leading" constant="8" id="Uq8-E7-GmS"/>
+                                            <constraint firstItem="XDM-7S-fJ2" firstAttribute="leading" secondItem="idt-TG-fRA" secondAttribute="leading" constant="8" id="nNC-mI-LpE"/>
+                                            <constraint firstItem="XDM-7S-fJ2" firstAttribute="top" secondItem="idt-TG-fRA" secondAttribute="top" constant="8" id="qyb-Zx-7Wj"/>
+                                            <constraint firstItem="uQr-qC-ChW" firstAttribute="top" secondItem="XDM-7S-fJ2" secondAttribute="bottom" constant="8" id="uMI-8w-JAJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="uQr-qC-ChW" secondAttribute="trailing" constant="8" id="xBS-ep-NeU"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="idt-TG-fRA" firstAttribute="leading" secondItem="lld-Co-aXi" secondAttribute="leading" id="cLA-e5-QqA"/>
+                                    <constraint firstItem="idt-TG-fRA" firstAttribute="bottom" secondItem="lld-Co-aXi" secondAttribute="bottom" id="fI6-LM-f3i"/>
+                                    <constraint firstItem="idt-TG-fRA" firstAttribute="top" secondItem="lld-Co-aXi" secondAttribute="top" id="oay-Le-8Dh"/>
+                                    <constraint firstItem="idt-TG-fRA" firstAttribute="trailing" secondItem="lld-Co-aXi" secondAttribute="trailing" id="ozg-w7-Y35"/>
+                                    <constraint firstItem="idt-TG-fRA" firstAttribute="width" secondItem="VaS-fh-Oco" secondAttribute="width" id="zq9-bV-mKi"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="lld-Co-aXi"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="VaS-fh-Oco"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mwE-6g-pa7" firstAttribute="trailing" secondItem="LUE-36-Jn9" secondAttribute="trailing" id="DjX-Oo-d33"/>
+                            <constraint firstItem="mwE-6g-pa7" firstAttribute="bottom" secondItem="LUE-36-Jn9" secondAttribute="bottom" id="GlI-BI-19G"/>
+                            <constraint firstItem="LUE-36-Jn9" firstAttribute="top" secondItem="mwE-6g-pa7" secondAttribute="top" id="c2f-Tx-wlA"/>
+                            <constraint firstItem="LUE-36-Jn9" firstAttribute="leading" secondItem="mwE-6g-pa7" secondAttribute="leading" id="she-Mo-FPv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mwE-6g-pa7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dependencies and Libreries" id="GrL-ch-xgm"/>
+                    <connections>
+                        <outlet property="frequencyBarChart" destination="qYT-gz-mPB" id="OdG-x4-cmJ"/>
+                        <outlet property="overviewTextLabel" destination="XBs-Rj-eac" id="mBW-05-NaR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ha8-Wa-2KR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2586.4000000000001" y="2431.7733990147785"/>
+        </scene>
         <!--About Wire-->
         <scene sceneID="JNS-hn-2S8">
             <objects>
@@ -261,6 +413,11 @@
                         <viewLayoutGuide key="safeArea" id="Dg3-I2-ScC"/>
                     </view>
                     <navigationItem key="navigationItem" title="About Wire" id="vfE-W0-Yru">
+                        <barButtonItem key="leftBarButtonItem" title="Dependencies" id="Yy3-qN-VZh">
+                            <connections>
+                                <segue destination="oHh-qq-1C4" kind="show" id="eIG-Rb-ReO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Static Code" id="Myi-2C-5aW">
                             <connections>
                                 <segue destination="RWo-3m-j8O" kind="show" id="cQE-h3-5JR"/>
@@ -517,7 +674,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPu-fe-3s2">
-                                                    <rect key="frame" x="16" y="11" width="343" height="30"/>
+                                                    <rect key="frame" x="8" y="11" width="359" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="XCO-4J-EFW"/>
                                                     </constraints>
@@ -526,7 +683,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNQ-dl-sjl" customClass="BeautifulBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="49" width="343" height="340"/>
+                                                    <rect key="frame" x="8" y="49" width="359" height="340"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
                                             </subviews>
@@ -976,21 +1133,6 @@
             </objects>
             <point key="canvasLocation" x="1707" y="1683"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="l1i-pb-7dM">
-            <objects>
-                <viewController id="QeX-PC-rjF" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0eC-6U-3JG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="2NY-MA-abl"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wco-rT-lnW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2581" y="1698"/>
-        </scene>
         <!--Performance-->
         <scene sceneID="wtX-Wv-Mfr">
             <objects>
@@ -1009,6 +1151,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="dependencies" width="590.5" height="326.5"/>
         <image name="hand.raised" catalog="system" width="128" height="128"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="lock.circle" catalog="system" width="128" height="121"/>
