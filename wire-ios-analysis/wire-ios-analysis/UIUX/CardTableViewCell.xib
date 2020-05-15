@@ -45,7 +45,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="cardContainerView" destination="H2p-sc-9uM" id="OqH-02-JoU"/>
+                <outlet property="cardContainerView" destination="H2p-sc-9uM" id="CJk-Ej-UwT"/>
                 <outlet property="cardImageView" destination="zwj-U6-fiV" id="tRY-2G-UKQ"/>
                 <outlet property="cardLabel" destination="rbR-Ec-XwR" id="GXA-2P-4u3"/>
             </connections>

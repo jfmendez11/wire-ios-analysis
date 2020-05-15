@@ -13,8 +13,10 @@ class UIUXViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let cardCellReuseIdentifier = "cardCellReuseIdentifier"
-       
+    let cellSpacingHeight: CGFloat = 10
+    
     var sections = [Section]()
+    
     var selectedIndexPath: Int = 0;
     
     override func viewDidLoad() {
@@ -23,6 +25,8 @@ class UIUXViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "CardTableViewCell", bundle: nil), forCellReuseIdentifier: cardCellReuseIdentifier)
         tableView.rowHeight = self.view.frame.width
+        tableView.backgroundColor = .clear
+        
         tableView.dataSource = self
         tableView.delegate = self
         setupInformation()
@@ -32,13 +36,13 @@ class UIUXViewController: UIViewController {
     func setupInformation(){
         let designMetaphor = Section(title: "Design Metaphor",description: getDesignMetaphor(),image: #imageLiteral(resourceName: "icons"))
         sections.append(designMetaphor)
-        let uiDevelopment = Section(title: "UI development",description: getUIDevelopment(),image: #imageLiteral(resourceName: "notch"))
+        let uiDevelopment = Section(title: "UI development",description: getUIDevelopment(),image: UIImage(named: "uiDevelopment1")!)
         sections.append(uiDevelopment)
         let useColors = Section(title: "Use of colors",description: getUseColors(),image: #imageLiteral(resourceName: "colors"))
         sections.append(useColors)
         let useLocalizations = Section(title: "Use of localizations",description: getUseLocalizations(),image: #imageLiteral(resourceName: "localization"))
         sections.append(useLocalizations)
-        let useTextFields = Section(title: "Use of text fields",description: getUseTextFields(),image: #imageLiteral(resourceName: "textField"))
+        let useTextFields = Section(title: "Use of text fields",description: getUseTextFields(),image: UIImage(named: "useText1")!)
         sections.append(useTextFields)
     }
     
@@ -49,7 +53,7 @@ class UIUXViewController: UIViewController {
     }
     private func getUIDevelopment() -> String {
         return """
-        As the UI of Wire was made programatically, it makes it easier to mantain through the time. Also, making the UI programatically allows Wire to have more control over the layout of different sizes of phones. One import thing is that Wire takes into account the notch and allows landscape mode. In the image above we can see the code for the notch in one of the featurs Wire provides.
+        As the Wire's UI was made programatically, it makes it easier to mantain through the time. Also, making the UI programatically allows Wire to have more control over the layout of different sizes of phones. That is important to have in mind to elevate the user experience. One important thing is that Wire takes into account the notch and allows landscape mode. In the image above we can see the code for the notch in one of the featurs Wire provides.
         """
     }
     private func getUseColors() -> String {
@@ -60,7 +64,7 @@ class UIUXViewController: UIViewController {
     }
     private func getUseLocalizations() -> String {
         return """
-        Wire uses localizations to allow the user navigate through the app in the prefer, which is usually the phone language. The iPhone has spanish as the device language. We can see that some of the labels that are shown are in spanish and some are in english, which is confusing for the user. We changed some parts of the code to add this new text in Spanish. To see the changes, press button.
+        Wire uses localizations to allow the user navigate through the app in the prefer, which is usually the phone language. The iPhone has spanish as the device language. We can see that some of the labels that are shown are in spanish and some are in english, which is confusing for the user. We changed some parts of the code to add this new text in Spanish. At some point, this changes can be done in the whole app to make the user experience better. To see the changes, press button.
 
         """
     }
@@ -75,7 +79,9 @@ class UIUXViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? UIDetailViewController{
+            
             destination.section = sections[selectedIndexPath]
+            
         }
         
     }
@@ -85,12 +91,29 @@ extension UIUXViewController : UITableViewDataSource {
         return sections.count
     }
     
+    // Set the spacing between sections
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cardCellReuseIdentifier, for: indexPath) as! CardTableViewCell
         
+        cell.layer.borderWidth = 5
+        cell.layer.borderColor =  UIColor.lightGray.cgColor
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
         
         cell.cardImageView.image = sections[indexPath.row].image
         cell.cardLabel.text = sections[indexPath.row].title
+        
         
         
         return cell
@@ -101,7 +124,10 @@ extension UIUXViewController : UITableViewDataSource {
 extension UIUXViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
+        
         selectedIndexPath = indexPath.row
+        print("selectedIndexPath en UIUX\(selectedIndexPath)")
         performSegue(withIdentifier: "uiDetail", sender: self)
     }
 }
