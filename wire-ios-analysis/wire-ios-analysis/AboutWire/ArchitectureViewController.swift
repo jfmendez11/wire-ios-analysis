@@ -41,7 +41,7 @@ class ArchitectureViewController: UIViewController {
         
         The libraries source and binaries reside on GitHub. Carthage is used to resolve the dependencies and fetch the correct libraries versions.
         
-        The list of all the libraries used can be found in Cartfile.resolved of the Wire-iOS project. Some other UI-related libraries are fetched via CocoaPods, list of those can be found in Podfile.
+        The list of all the libraries used can be found in Cartfile.resolved of the Wire-iOS project. Some other UI-related libraries are fetched via CocoaPods.
         """
     }
     

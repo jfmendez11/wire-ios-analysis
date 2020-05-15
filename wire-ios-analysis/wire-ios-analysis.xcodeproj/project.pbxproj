@@ -11,6 +11,8 @@
 		58749798246CF35900FD8008 /* DependenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58749797246CF35900FD8008 /* DependenciesViewController.swift */; };
 		5874979C246D16C000FD8008 /* DependciesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5874979B246D16C000FD8008 /* DependciesTableViewCell.swift */; };
 		5874979E246D24AD00FD8008 /* DependencyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5874979D246D24AD00FD8008 /* DependencyDetailViewController.swift */; };
+		587497A0246E0C6800FD8008 /* ProsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5874979F246E0C6800FD8008 /* ProsTableViewCell.swift */; };
+		587497A2246E0CA300FD8008 /* ConsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497A1246E0CA300FD8008 /* ConsTableViewCell.swift */; };
 		58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB628D245E369100BA91C2 /* AppDelegate.swift */; };
 		58FB6290245E369100BA91C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB628F245E369100BA91C2 /* SceneDelegate.swift */; };
 		58FB6295245E369100BA91C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FB6293245E369100BA91C2 /* Main.storyboard */; };
@@ -60,6 +62,8 @@
 		58749797246CF35900FD8008 /* DependenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenciesViewController.swift; sourceTree = "<group>"; };
 		5874979B246D16C000FD8008 /* DependciesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependciesTableViewCell.swift; sourceTree = "<group>"; };
 		5874979D246D24AD00FD8008 /* DependencyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyDetailViewController.swift; sourceTree = "<group>"; };
+		5874979F246E0C6800FD8008 /* ProsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProsTableViewCell.swift; sourceTree = "<group>"; };
+		587497A1246E0CA300FD8008 /* ConsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsTableViewCell.swift; sourceTree = "<group>"; };
 		58FB628A245E369100BA91C2 /* wire-ios-analysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wire-ios-analysis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FB628D245E369100BA91C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58FB628F245E369100BA91C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 				58749797246CF35900FD8008 /* DependenciesViewController.swift */,
 				5874979B246D16C000FD8008 /* DependciesTableViewCell.swift */,
 				5874979D246D24AD00FD8008 /* DependencyDetailViewController.swift */,
+				5874979F246E0C6800FD8008 /* ProsTableViewCell.swift */,
+				587497A1246E0CA300FD8008 /* ConsTableViewCell.swift */,
 			);
 			path = AboutWire;
 			sourceTree = "<group>";
@@ -361,8 +367,10 @@
 				58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */,
 				58FB62BA246A319000BA91C2 /* AboutWireViewController.swift in Sources */,
 				58749798246CF35900FD8008 /* DependenciesViewController.swift in Sources */,
+				587497A2246E0CA300FD8008 /* ConsTableViewCell.swift in Sources */,
 				5874979C246D16C000FD8008 /* DependciesTableViewCell.swift in Sources */,
 				9D05190F24673FE600B02B17 /* Constants.swift in Sources */,
+				587497A0246E0C6800FD8008 /* ProsTableViewCell.swift in Sources */,
 				9D8BA79B246CE52D00220AF8 /* Section.swift in Sources */,
 				9D8C6993246D70EA00F5E9AA /* UIUXViewController.swift in Sources */,
 				58FB62C2246B829500BA91C2 /* BasicBarChart.swift in Sources */,

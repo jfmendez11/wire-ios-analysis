@@ -8,15 +8,10 @@
 
 import UIKit
 
-struct Languages: Codable {
-    let languages: [String:Int]
-}
-
 class DependencyDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var currentVersionLabel: UILabel!
     @IBOutlet weak var latestReleaseDateLabel: UILabel!
-    @IBOutlet weak var numberOfVersionsLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var commentsContainerView: UIView!
     @IBOutlet weak var languagesBarChart: BasicBarChart!
@@ -51,19 +46,16 @@ class DependencyDetailViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        nameLabel.adjustsFontSizeToFitWidth = true
+        
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
+        descriptionLabel.layer.cornerRadius = 10
+        descriptionLabel.adjustsFontSizeToFitWidth = true
         // Do any additional setup after loading the view.
         self.getGithubInfo()
         self.getLanguages()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        let langaugesEntries = generateEmptyDataEntries(count: languages.count)
-        languagesBarChart.updateDataEntries(dataEntries: langaugesEntries, animated: false)
-        let timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) {[unowned self] (timer) in
-            let langaugesEntries = self.generateLanguageDataEntries()
-            self.languagesBarChart.updateDataEntries(dataEntries: langaugesEntries, animated: true)
-        }
-        timer.fire()
     }
     
     private func getGithubInfo() {
@@ -80,7 +72,6 @@ class DependencyDetailViewController: UIViewController {
                        formatter2.locale = Locale(identifier: "en")
                        self.latestReleaseDateLabel.text = formatter2.string(from: date)
                    }
-                   self.numberOfVersionsLabel.text = "\(releases.count)"
                    self.releases = releases
                    self.collectionView.reloadData()
                }
@@ -89,8 +80,15 @@ class DependencyDetailViewController: UIViewController {
     
     private func getLanguages() {
         Request<[String:Int]>.get(self, path: "", url: "https://api.github.com/repos/wireapp/\(nameLabel.text ?? "")/languages") { (languages) in
+            self.languages = languages
             DispatchQueue.main.async() {
-                self.languages = languages
+                let langaugesEntries = self.generateEmptyDataEntries(count: languages.count)
+                self.languagesBarChart.updateDataEntries(dataEntries: langaugesEntries, animated: false)
+                let timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) {[unowned self] (timer) in
+                    let langaugesEntries = self.generateLanguageDataEntries()
+                    self.languagesBarChart.updateDataEntries(dataEntries: langaugesEntries, animated: true)
+                }
+                timer.fire()
             }
         }
     }
@@ -104,15 +102,20 @@ class DependencyDetailViewController: UIViewController {
     }
     
     func generateLanguageDataEntries() -> [DataEntry] {
-        let colors = [#colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)]
+        var colors = [String:UIColor]()
+        colors["Swift"] = #colorLiteral(red: 1, green: 0.6745098039, blue: 0.2705882353, alpha: 1)
+        colors["Objective-C"] = #colorLiteral(red: 0.262745098, green: 0.5568627451, blue: 1, alpha: 1)
+        colors["C"] = #colorLiteral(red: 0.3333333333, green: 0.3333333333, blue: 0.3333333333, alpha: 1)
+        colors["Shell"] = #colorLiteral(red: 0.537254902, green: 0.8784313725, blue: 0.3176470588, alpha: 1)
+        colors["Makefile"] = #colorLiteral(red: 0.2588235294, green: 0.4705882353, blue: 0.09803921569, alpha: 1)
+        colors["C++"] = #colorLiteral(red: 0.9529411765, green: 0.2941176471, blue: 0.4901960784, alpha: 1)
         var result: [DataEntry] = []
         let baseHeight = [Int](languages.values).max()
         var i = 0
         for (key,value) in languages {
             //(arc4random() % 90) + 10
             let height: Float = Float(value) / Float(baseHeight!)
-            
-            result.append(DataEntry(color: colors[i % colors.count], height: height, textValue: "\(value)", title: key))
+            result.append(DataEntry(color: colors[key]!, height: height, textValue: "\(value)", title: key))
             i += 1
         }
         return result

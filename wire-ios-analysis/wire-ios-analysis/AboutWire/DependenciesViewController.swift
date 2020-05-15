@@ -11,17 +11,113 @@ class DependenciesViewController: UIViewController {
     @IBOutlet weak var overviewTextLabel: UILabel!
     @IBOutlet weak var frequencyBarChart: BeautifulBarChart!
     @IBOutlet weak var dependenciesTable: UITableView!
+    @IBOutlet weak var prosTable: UITableView!
+    @IBOutlet weak var consTable: UITableView!
+    
     
     let cellReuseIdentifier = "dependencyCell"
+    let prosReuseIdentifier = "proCell"
+    let consReuseIdentifier = "conCell"
+    
     var selectedRepo: String?
     
     var imports = [Import]()
     
     let dependencies = ["WireSyncEngine", "WireDataModel", "WireRequestStrategy", "WireTransport", "WireMockTransport", "WireShareEngine", "WireSystem", "WireUtilities", "WireCanvas", "WireTesting", "WireCryptobox", "WireImages", "WireLinkPreview", "WireProtos", "Ziphy", "avs"]
     
-    let dependencyRepoName = ["wire-ios-sync-engine", "wire-ios-data-model", "wire-ios-request-strategy", "wire-ios-transport", "wire-ios-mock-transport", "wire-ios-share-engine", "wire-ios-system", "wire-ios-utilities", "wire-ios-canvas", "wire-ios-testing", "wire-ios-cryptobox", "wire-ios-images", "wire-ios-link-preview", "wire-ios-protos", "wire-ios-ziphy", "avs-ios-binaries"]
+    let dependencyRepoName = ["wire-ios-sync-engine", "wire-ios-data-model", "wire-ios-request-strategy", "wire-ios-transport", "wire-ios-mocktransport", "wire-ios-share-engine", "wire-ios-system", "wire-ios-utilities", "wire-ios-canvas", "wire-ios-testing", "wire-ios-cryptobox", "wire-ios-images", "wire-ios-link-preview", "wire-ios-protos", "wire-ios-ziphy", "avs-ios-binaries"]
     
-    let repoDescription = ["wire-ios-sync-engine", "wire-ios-data-model", "wire-ios-request-strategy", "wire-ios-transport", "wire-ios-mock-transport", "wire-ios-share-engine", "wire-ios-system", "wire-ios-utilities", "wire-ios-canvas", "wire-ios-testing", "wire-ios-cryptobox", "wire-ios-images", "wire-ios-link-preview", "wire-ios-protos", "wire-ios-ziphy", "avs-ios-binaries"]
+    let repoDescription = ["""
+    The wire-ios-sync-engine framework is used as part of the Wire iOS client and is the top-most layer of the underlying sync engine. It is using a number of lower-level frameworks. It is the entrt point of the app and integrates functions with other frameworks. Responsable for integrations of other frameworks with the UI, integrations of AVS, push notifications, high-level sync logic and handles event processing.
+
+    The Wire iOS sync engine is developed in a mix of Objective-C and Swift (and just a handful of classes in Objective-C++). It is a result of a long development process that was started in Objective-C when Swift was not yet available. In the past years, parts of it have been written or rewritten in Swift. Going forward, expect new functionalities to be developed almost exclusively in Swift.
+    """,
+    """
+    Wire data model dependency is a CoreData-based storage library which function is to implement the application data model and status observation, and mannage local storage. This framework is part of Wire iOS SyncEngine.
+    """,
+    """
+    This is another framework that is part of the Wire iOS stack. It is the iOS synchronization base interface for Wire, and connects the sync-engine and share-engine with the data-model.
+    """,
+    """
+    Abstracts the network communication with Wire backend. It handles authentication of requests, network failures and retries transparently. This framework is part of Wire iOS.
+    """,
+    """
+    Helps developers mock the requests to the Wire backend during integration tests.
+    """,
+    """
+    The library for sending the content from iOS Share extension. This framework is part of Wire iOS.
+    """,
+    """
+    Covers the interaction with ASL (Apple System Log), profiling and provides wrappers of some Foundation classes. This framework is part of Wire iOS.
+    """,
+    """
+    Implements common data structures, algorithms (such as symmetric encryption) and application environment detection. This framework is part of Wire iOS.
+    """,
+    """
+    Canvas is a component for painting and composing pictures. This framework is part of Wire iOS SyncEngine.
+    """,
+    """
+    The wire-ios-testing framwork compiles some utilities to help with unit / integration tests. This framework is part of Wire iOS SyncEngine.
+    """,
+    """
+    This project provides for cross-compilation of cryptobox for iOS, currently only in the form of static libraries. Cryptobox provides a high-level API with persistent storage for the proteus implementation of the axolotl protocol. This framework is part of Wire iOS.
+    """,
+    """
+    Framework to perform rotation and scaling of images. This framework is part of Wire iOS SyncEngine.
+    """,
+    """
+    WireLinkPreview is a Swift framework that can be used to fetch and parse Open Graph data that is present on most webpages to generate link previews. This framework is part of Wire iOS.
+    """,
+    """
+    The wire-ios-protos framework contains precompiled protocol buffer definitions for Swift. Protobuf support for message encoding/decoding. This framework is part of Wire iOS SyncEngine.
+    """,
+    """
+    Ziphy is a helper framework for interacting with Giphy. This framework is part of Wire iOS.
+    """,
+    """
+    Audio-Video-Signaling library, integration of WebRTC.
+    """]
+    
+    let pros = ["""
+    High cohesion
+    """,
+    """
+    Low level of attatchment (acoplamiento)
+    """,
+    """
+    Easy to find points of failure
+    """,
+    """
+    Easy to maintain
+    """,
+    """
+    Reduced bottlenecks
+    """,
+    """
+    Reusable code
+    """,
+    """
+    Not dependant on third parties
+    """,
+    """
+    Easier transition from Objective-C to Swift
+    """]
+    
+    let cons = ["""
+    High maintainance
+    """,
+    """
+    Difficult to debug (too many dependencies)
+    """,
+    """
+    Lost work (wire-ios-message-strategy not longer used)
+    """,
+    """
+    Increased work (all frameworks belong to Wire)
+    """,
+    """
+    Some are not used frequently but still require maintaince
+    """]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +127,20 @@ class DependenciesViewController: UIViewController {
         // Do any additional setup after loading the view.
         dependenciesTable.delegate = self
         dependenciesTable.dataSource = self
+        dependenciesTable.isScrollEnabled = false
         dependenciesTable.reloadData()
+        
+        prosTable.delegate = self
+        prosTable.dataSource = self
+        prosTable.isScrollEnabled = false
+        prosTable.separatorColor = .white
+        prosTable.reloadData()
+        
+        consTable.delegate = self
+        consTable.dataSource = self
+        consTable.isScrollEnabled = false
+        consTable.separatorColor = .white
+        consTable.reloadData()
         
         self.loadFrequencyData()
     }
@@ -68,7 +177,7 @@ class DependenciesViewController: UIViewController {
 
     private func getOverviewText() -> String {
         return """
-        According to Wire's wiki the app for iOS has some dependencies that are available from Cartage. This dependencies are from Wire and provides different services to the main app. The main dependencies are described below.
+        According to Wire's wiki the app for iOS has some dependencies that are installed with Carthage. This dependencies are all developed in-house and provide different services to the main app. The main dependencies and their connections are displayed in the image below. The frequency graph describes the ammount of times each dependency is imported. Afterwards, each dependency is explained briefly and finally the pros and cons of thier usage are evaluated.
         """
     }
     
@@ -134,16 +243,32 @@ extension DependenciesViewController: UITableViewDelegate {
 
 extension DependenciesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dependencyRepoName.count
+        if tableView == dependenciesTable {
+            return dependencyRepoName.count
+        } else if tableView == prosTable {
+            return pros.count
+        } else {
+            return cons.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? DependciesTableViewCell else {
-             fatalError("The dequeued cell is not an instance of RouteTableViewCell.")
+        if tableView == dependenciesTable, let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? DependciesTableViewCell {
+            let name = dependencyRepoName[indexPath.row]
+            cell.dependencyNameLabel.text = name
+            return cell
+        } else if tableView == prosTable, let cell = tableView.dequeueReusableCell(withIdentifier: prosReuseIdentifier, for: indexPath) as? ProsTableViewCell {
+            let pro = pros[indexPath.row]
+            cell.proLabel.text = pro
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: consReuseIdentifier, for: indexPath) as? ConsTableViewCell else {
+                fatalError("Algo malo pasó")
+            }
+            let con = cons[indexPath.row]
+            cell.conLabel.text = con
+            return cell
         }
-        let name = dependencyRepoName[indexPath.row]
-        cell.dependencyNameLabel.text = name
-        return cell
     }
     
     /*func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
