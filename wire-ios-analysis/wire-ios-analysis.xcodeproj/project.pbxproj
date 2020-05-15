@@ -49,6 +49,12 @@
 		9D8C6990246D70E000F5E9AA /* CardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8C698D246D70E000F5E9AA /* CardTableViewCell.xib */; };
 		9D8C6991246D70E000F5E9AA /* DropShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C698E246D70E000F5E9AA /* DropShadowView.swift */; };
 		9D8C6993246D70EA00F5E9AA /* UIUXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C6992246D70EA00F5E9AA /* UIUXViewController.swift */; };
+		9DB5A7BF246ECB9300513861 /* SectionCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5A7BE246ECB9300513861 /* SectionCode.swift */; };
+		9DB5A7C6246ECBC100513861 /* SectionConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5A7C1246ECBC100513861 /* SectionConnectivity.swift */; };
+		9DB5A7C7246ECBC100513861 /* EventualConnectivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5A7C2246ECBC100513861 /* EventualConnectivityViewController.swift */; };
+		9DB5A7C8246ECBC100513861 /* ConnectivityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5A7C3246ECBC100513861 /* ConnectivityDetailViewController.swift */; };
+		9DB5A7C9246ECBC100513861 /* ConnectivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB5A7C4246ECBC100513861 /* ConnectivityTableViewCell.swift */; };
+		9DB5A7CA246ECBC100513861 /* ConnectivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DB5A7C5246ECBC100513861 /* ConnectivityTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +114,12 @@
 		9D8C698D246D70E000F5E9AA /* CardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardTableViewCell.xib; sourceTree = "<group>"; };
 		9D8C698E246D70E000F5E9AA /* DropShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropShadowView.swift; sourceTree = "<group>"; };
 		9D8C6992246D70EA00F5E9AA /* UIUXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUXViewController.swift; sourceTree = "<group>"; };
+		9DB5A7BE246ECB9300513861 /* SectionCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionCode.swift; sourceTree = "<group>"; };
+		9DB5A7C1246ECBC100513861 /* SectionConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionConnectivity.swift; sourceTree = "<group>"; };
+		9DB5A7C2246ECBC100513861 /* EventualConnectivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventualConnectivityViewController.swift; sourceTree = "<group>"; };
+		9DB5A7C3246ECBC100513861 /* ConnectivityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectivityDetailViewController.swift; sourceTree = "<group>"; };
+		9DB5A7C4246ECBC100513861 /* ConnectivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectivityTableViewCell.swift; sourceTree = "<group>"; };
+		9DB5A7C5246ECBC100513861 /* ConnectivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectivityTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +180,7 @@
 		58FB628C245E369100BA91C2 /* wire-ios-analysis */ = {
 			isa = PBXGroup;
 			children = (
+				9DB5A7C0246ECBA100513861 /* Eventual Connectivity */,
 				587497A3246E3CA800FD8008 /* Security */,
 				9D8BA785246CBE7F00220AF8 /* UIUX */,
 				58FB62B4246A158000BA91C2 /* AboutWire */,
@@ -279,9 +292,22 @@
 				9D8C698D246D70E000F5E9AA /* CardTableViewCell.xib */,
 				9D8C698E246D70E000F5E9AA /* DropShadowView.swift */,
 				9D8BA798246CC52900220AF8 /* UIDetailViewController.swift */,
+				9DB5A7BE246ECB9300513861 /* SectionCode.swift */,
 				9D8BA79A246CE52D00220AF8 /* Section.swift */,
 			);
 			path = UIUX;
+			sourceTree = "<group>";
+		};
+		9DB5A7C0246ECBA100513861 /* Eventual Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				9DB5A7C3246ECBC100513861 /* ConnectivityDetailViewController.swift */,
+				9DB5A7C4246ECBC100513861 /* ConnectivityTableViewCell.swift */,
+				9DB5A7C5246ECBC100513861 /* ConnectivityTableViewCell.xib */,
+				9DB5A7C2246ECBC100513861 /* EventualConnectivityViewController.swift */,
+				9DB5A7C1246ECBC100513861 /* SectionConnectivity.swift */,
+			);
+			path = "Eventual Connectivity";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +395,7 @@
 				58FB629A245E369400BA91C2 /* LaunchScreen.storyboard in Resources */,
 				9D8C6990246D70E000F5E9AA /* CardTableViewCell.xib in Resources */,
 				58FB6297245E369400BA91C2 /* Assets.xcassets in Resources */,
+				9DB5A7CA246ECBC100513861 /* ConnectivityTableViewCell.xib in Resources */,
 				587497A8246E5BE300FD8008 /* cryptobox_analysis.json in Resources */,
 				58FB6295245E369100BA91C2 /* Main.storyboard in Resources */,
 			);
@@ -400,6 +427,7 @@
 				587497A2246E0CA300FD8008 /* ConsTableViewCell.swift in Sources */,
 				5874979C246D16C000FD8008 /* DependciesTableViewCell.swift in Sources */,
 				9D05190F24673FE600B02B17 /* Constants.swift in Sources */,
+				9DB5A7BF246ECB9300513861 /* SectionCode.swift in Sources */,
 				587497AA246E7D6500FD8008 /* ProsSecTableViewCell.swift in Sources */,
 				587497A0246E0C6800FD8008 /* ProsTableViewCell.swift in Sources */,
 				9D8BA79B246CE52D00220AF8 /* Section.swift in Sources */,
@@ -407,9 +435,12 @@
 				58FB62C2246B829500BA91C2 /* BasicBarChart.swift in Sources */,
 				58FB62D1246B867100BA91C2 /* DataEntry.swift in Sources */,
 				58FB62D5246B86D300BA91C2 /* UIBezierPathExtension.swift in Sources */,
+				9DB5A7C9246ECBC100513861 /* ConnectivityTableViewCell.swift in Sources */,
 				9D8C6991246D70E000F5E9AA /* DropShadowView.swift in Sources */,
 				58FB62D3246B86A300BA91C2 /* CustomSegments.swift in Sources */,
 				5874979E246D24AD00FD8008 /* DependencyDetailViewController.swift in Sources */,
+				9DB5A7C6246ECBC100513861 /* SectionConnectivity.swift in Sources */,
+				9DB5A7C8246ECBC100513861 /* ConnectivityDetailViewController.swift in Sources */,
 				58FB62C4246B82D700BA91C2 /* BasicBarChartPresenter.swift in Sources */,
 				58FB62CC246B840400BA91C2 /* BeautifulBarEntry.swift in Sources */,
 				58FB62DB246BBA7D00BA91C2 /* ArchitectureViewController.swift in Sources */,
@@ -421,6 +452,7 @@
 				9D05190B2467300500B02B17 /* Utilities.swift in Sources */,
 				58FB62D9246B873400BA91C2 /* ArrayExtension.swift in Sources */,
 				58FB62C8246B835600BA91C2 /* BeautifulBarChart.swift in Sources */,
+				9DB5A7C7246ECBC100513861 /* EventualConnectivityViewController.swift in Sources */,
 				58FB6290245E369100BA91C2 /* SceneDelegate.swift in Sources */,
 				9D8C698F246D70E000F5E9AA /* CardTableViewCell.swift in Sources */,
 			);
