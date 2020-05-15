@@ -21,7 +21,7 @@ class ConnectivityDetailViewController: UIViewController {
     var sectionsCode1 = [SectionCode]()
     var sectionsCode2 = [SectionCode]()
     var sectionsCode3 = [SectionCode]()
-    
+    var sectionsCode4 = [SectionCode]()
     
     fileprivate let collectionView: UICollectionView = {
               let layout = UICollectionViewFlowLayout()
@@ -77,7 +77,8 @@ class ConnectivityDetailViewController: UIViewController {
          let inconsistentMessage2 = SectionCode(description: getInconsistentMessage2(),image: #imageLiteral(resourceName: "opcionesResend"))
          sectionsCode3.append(inconsistentMessage2)
                     
-        
+        let blockedApp1 = SectionCode(description: getBlockedApp1(),image: #imageLiteral(resourceName: "wire"))
+        sectionsCode4.append(blockedApp1)
     }
           
           private func getStuckProgress1() -> String {
@@ -105,6 +106,11 @@ class ConnectivityDetailViewController: UIViewController {
             This resend or delete buttons should be shown in the first place, without showing the "sending" message which is incorrect when there's absence of internet connection. As it was explained in the snippet picture, after a series of steps a timestamp triggers the "resend or delete options. To fix this, if the 'failed to send' is triggered, then it should show this two options. That way there wouldn't be an inconsistent message.
         """
     }
+    private func getBlockedApp1() -> String {
+        return """
+            This bug is not that easy to find because everything seams to be fine. Each conversation class could have the mistake but it's not that easy to get to know in which class this happens. The blocked app bug only happens in a physical iPhone but, when using an emulator, this doesn't happen. Maybe with a further analysis, the error can be found.
+        """
+    }
           
     }
     extension ConnectivityDetailViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -119,7 +125,7 @@ class ConnectivityDetailViewController: UIViewController {
                 return 1
             } else if labelTitle.text == "Blocked App"{
                 
-                return 0
+                return 1
             }
             else {
             return 2
@@ -147,8 +153,9 @@ class ConnectivityDetailViewController: UIViewController {
                cell.imageView.image = sectionsCode3[indexPath.row].image
                cell.descriptionLabel.text = sectionsCode3[indexPath.row].description
            }
-            else if labelTitle.text == "BlockedApp" {
-                
+            else if labelTitle.text == "Blocked App" {
+                cell.imageView.image = sectionsCode4[indexPath.row].image
+                cell.descriptionLabel.text = sectionsCode4[indexPath.row].description
             }
             return cell
         }
