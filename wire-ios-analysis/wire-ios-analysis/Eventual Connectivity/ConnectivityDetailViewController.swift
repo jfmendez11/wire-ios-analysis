@@ -117,8 +117,9 @@ class ConnectivityDetailViewController: UIViewController {
             if labelTitle.text == "Generic Message"
             {
                 return 1
-            } else if labelTitle.text == "Blocked app"{
-                return 1
+            } else if labelTitle.text == "Blocked App"{
+                
+                return 0
             }
             else {
             return 2
@@ -132,18 +133,23 @@ class ConnectivityDetailViewController: UIViewController {
             cell.layer.cornerRadius = 5
             
             if labelTitle.text == "Stuck progress notification"{
-            
+                
             cell.imageView.image = sectionsCode1[indexPath.row].image
             cell.descriptionLabel.text = sectionsCode1[indexPath.row].description
             }
             else if labelTitle.text == "Generic Message" {
+                 
                 cell.imageView.image = sectionsCode2[indexPath.row].image
                 cell.descriptionLabel.text = sectionsCode2[indexPath.row].description
             }
             else if labelTitle.text == "Inconsistent Message" {
+                 
                cell.imageView.image = sectionsCode3[indexPath.row].image
                cell.descriptionLabel.text = sectionsCode3[indexPath.row].description
            }
+            else if labelTitle.text == "BlockedApp" {
+                
+            }
             return cell
         }
         

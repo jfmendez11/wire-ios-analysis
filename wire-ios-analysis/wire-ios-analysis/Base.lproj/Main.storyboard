@@ -38,33 +38,36 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cua-eX-7Si">
-                                <rect key="frame" x="16" y="140" width="343" height="575"/>
+                                <rect key="frame" x="16" y="121" width="343" height="594"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n16-1b-BvT">
-                                        <rect key="frame" x="8" y="8" width="327" height="559"/>
+                                        <rect key="frame" x="8" y="8" width="327" height="578"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="559" id="6dF-mC-71e"/>
+                                            <constraint firstAttribute="height" constant="578" id="DR7-UK-sV6"/>
                                         </constraints>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="n16-1b-BvT" firstAttribute="trailing" secondItem="cua-eX-7Si" secondAttribute="trailingMargin" id="Awy-4x-ejq"/>
-                                    <constraint firstItem="n16-1b-BvT" firstAttribute="top" secondItem="cua-eX-7Si" secondAttribute="topMargin" id="DfJ-aj-5SZ"/>
-                                    <constraint firstAttribute="height" constant="575" id="baL-RN-h6O"/>
-                                    <constraint firstItem="n16-1b-BvT" firstAttribute="leading" secondItem="cua-eX-7Si" secondAttribute="leadingMargin" id="uie-jv-43T"/>
+                                    <constraint firstItem="n16-1b-BvT" firstAttribute="top" secondItem="cua-eX-7Si" secondAttribute="top" constant="8" id="Qzo-fW-Ozz"/>
+                                    <constraint firstAttribute="trailing" secondItem="n16-1b-BvT" secondAttribute="trailing" constant="8" id="VGa-V1-MwF"/>
+                                    <constraint firstAttribute="bottom" secondItem="n16-1b-BvT" secondAttribute="bottom" constant="8" id="WXx-v2-oBW"/>
+                                    <constraint firstItem="n16-1b-BvT" firstAttribute="leading" secondItem="cua-eX-7Si" secondAttribute="leading" constant="8" id="gZT-59-23a"/>
+                                    <constraint firstAttribute="height" constant="594" id="ndH-Uy-dRl"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="N01-Xc-fmo" firstAttribute="trailing" secondItem="cua-eX-7Si" secondAttribute="trailing" constant="16" id="2JY-J5-bql"/>
+                            <constraint firstItem="cua-eX-7Si" firstAttribute="leading" secondItem="c3e-KZ-C7L" secondAttribute="leading" id="3T5-rG-ZWV"/>
                             <constraint firstItem="N01-Xc-fmo" firstAttribute="trailing" secondItem="c3e-KZ-C7L" secondAttribute="trailing" constant="16" id="A9d-z3-OyJ"/>
                             <constraint firstItem="c3e-KZ-C7L" firstAttribute="top" secondItem="N01-Xc-fmo" secondAttribute="top" id="Cci-bE-R8L"/>
-                            <constraint firstItem="N01-Xc-fmo" firstAttribute="trailing" secondItem="cua-eX-7Si" secondAttribute="trailing" constant="16" id="O1K-Hg-Oo5"/>
-                            <constraint firstItem="cua-eX-7Si" firstAttribute="top" secondItem="c3e-KZ-C7L" secondAttribute="bottom" constant="27" id="XCW-bZ-sXN"/>
-                            <constraint firstItem="N01-Xc-fmo" firstAttribute="bottom" secondItem="cua-eX-7Si" secondAttribute="bottom" constant="14" id="d8Q-Wi-ZF6"/>
-                            <constraint firstItem="cua-eX-7Si" firstAttribute="leading" secondItem="N01-Xc-fmo" secondAttribute="leading" constant="16" id="ntv-xu-y6Y"/>
+                            <constraint firstItem="N01-Xc-fmo" firstAttribute="bottom" secondItem="cua-eX-7Si" secondAttribute="bottom" constant="14" id="EXY-vp-hmy"/>
+                            <constraint firstItem="cua-eX-7Si" firstAttribute="top" secondItem="c3e-KZ-C7L" secondAttribute="bottom" constant="8" id="Ira-Or-Zal"/>
+                            <constraint firstItem="cua-eX-7Si" firstAttribute="leading" secondItem="N01-Xc-fmo" secondAttribute="leading" constant="16" id="O2K-55-5mX"/>
+                            <constraint firstItem="cua-eX-7Si" firstAttribute="trailing" secondItem="c3e-KZ-C7L" secondAttribute="trailing" id="SRz-Xq-U1V"/>
                             <constraint firstItem="c3e-KZ-C7L" firstAttribute="leading" secondItem="N01-Xc-fmo" secondAttribute="leading" constant="16" id="w0X-hr-5RW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N01-Xc-fmo"/>

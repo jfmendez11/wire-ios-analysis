@@ -36,13 +36,13 @@ class UIUXViewController: UIViewController {
     func setupInformation(){
         let designMetaphor = Section(title: "Design Metaphor",description: getDesignMetaphor(),image: #imageLiteral(resourceName: "icons"))
         sections.append(designMetaphor)
-        let uiDevelopment = Section(title: "UI development",description: getUIDevelopment(),image: #imageLiteral(resourceName: "notch"))
+        let uiDevelopment = Section(title: "UI development",description: getUIDevelopment(),image: UIImage(named: "uiDevelopment1")!)
         sections.append(uiDevelopment)
         let useColors = Section(title: "Use of colors",description: getUseColors(),image: #imageLiteral(resourceName: "colors"))
         sections.append(useColors)
         let useLocalizations = Section(title: "Use of localizations",description: getUseLocalizations(),image: #imageLiteral(resourceName: "localization"))
         sections.append(useLocalizations)
-        let useTextFields = Section(title: "Use of text fields",description: getUseTextFields(),image: #imageLiteral(resourceName: "textField"))
+        let useTextFields = Section(title: "Use of text fields",description: getUseTextFields(),image: UIImage(named: "useText1")!)
         sections.append(useTextFields)
     }
     
