@@ -323,7 +323,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYT-gz-mPB" customClass="BeautifulBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYT-gz-mPB" customClass="BasicBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="46" width="343" height="246"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     </view>
@@ -660,16 +660,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRA-ch-62o">
-                                        <rect key="frame" x="8" y="145" width="343" height="150"/>
+                                        <rect key="frame" x="8" y="145" width="343" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="0zW-8R-0lB"/>
+                                            <constraint firstAttribute="height" constant="100" id="0zW-8R-0lB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Releases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTe-rc-lXl">
-                                        <rect key="frame" x="8" y="303" width="343" height="25"/>
+                                        <rect key="frame" x="8" y="253" width="343" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="fBe-Nn-XUi"/>
                                         </constraints>
@@ -678,14 +678,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEQ-zg-cet">
-                                        <rect key="frame" x="0.0" y="328" width="359" height="150"/>
+                                        <rect key="frame" x="0.0" y="278" width="359" height="150"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="SR5-bQ-e82"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Languages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAE-qH-Lcn">
-                                        <rect key="frame" x="8" y="486" width="343" height="25"/>
+                                        <rect key="frame" x="8" y="436" width="343" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="waN-rv-AFb"/>
                                         </constraints>
@@ -693,8 +693,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eD3-KI-DzT" customClass="BasicBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="511" width="359" height="197"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eD3-KI-DzT" customClass="BeautifulBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="461" width="359" height="247"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                 </subviews>
@@ -1222,7 +1222,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-mL-xX6" customClass="BasicBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXc-mL-xX6" customClass="BeautifulBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="49" width="343" height="320"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
@@ -1254,7 +1254,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNQ-dl-sjl" customClass="BeautifulBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KNQ-dl-sjl" customClass="BasicBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="49" width="359" height="340"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
@@ -1286,7 +1286,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TsW-wY-9Qv" customClass="BasicBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TsW-wY-9Qv" customClass="BeautifulBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="49" width="359" height="340"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
@@ -1318,7 +1318,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mep-av-Noc" customClass="BeautifulBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mep-av-Noc" customClass="BasicBarChart" customModule="wire_ios_analysis" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="49" width="359" height="340"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 </view>
@@ -2149,6 +2149,11 @@
                                                     <constraint firstItem="Kss-4L-zKD" firstAttribute="leading" secondItem="JBZ-Ik-1QU" secondAttribute="trailing" constant="4" id="wj1-hp-TFH"/>
                                                     <constraint firstItem="Kss-4L-zKD" firstAttribute="top" secondItem="BoF-at-neP" secondAttribute="top" constant="8" id="zyj-LA-ag5"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -2207,6 +2212,7 @@
                     <connections>
                         <outlet property="chaChaLabel" destination="BNg-JK-2Dn" id="oBG-hD-xyC"/>
                         <outlet property="consTable" destination="aFU-lJ-oE9" id="cfm-xO-Mt7"/>
+                        <outlet property="containerView" destination="Uul-k8-wlS" id="cTA-pi-6GG"/>
                         <outlet property="fingerprintLabel" destination="0vQ-yl-PfR" id="NRE-hu-wV9"/>
                         <outlet property="folderLabel" destination="EL3-4d-IZ7" id="ojg-3D-sDc"/>
                         <outlet property="genericHashLabel" destination="zC7-Xk-lWu" id="Qtt-24-KlD"/>
@@ -2216,6 +2222,7 @@
                         <outlet property="permissionTitleLabel" destination="GnH-Jr-e5L" id="Cn2-YT-MeB"/>
                         <outlet property="permissionView" destination="uhy-2X-JdO" id="OD4-XP-8QS"/>
                         <outlet property="prosTable" destination="54F-k8-TJc" id="XIb-PM-C4C"/>
+                        <outlet property="scrollView" destination="BYj-3Q-00A" id="KZg-lq-YAC"/>
                         <outlet property="statisticsBarChart" destination="oyi-Q8-ex1" id="kLJ-RG-pKB"/>
                     </connections>
                 </viewController>

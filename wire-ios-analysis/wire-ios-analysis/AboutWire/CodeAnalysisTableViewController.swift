@@ -75,10 +75,10 @@ class CodeAnalysisTableViewController: UITableViewController {
     
     var releases = [Release]()
     
-    @IBOutlet weak var inheritancesBarChart: BasicBarChart!
-    @IBOutlet weak var statsBarChart: BeautifulBarChart!
-    @IBOutlet weak var objectsBarChart: BasicBarChart!
-    @IBOutlet weak var importsBarChart: BeautifulBarChart!
+    @IBOutlet weak var inheritancesBarChart: BeautifulBarChart!
+    @IBOutlet weak var statsBarChart: BasicBarChart!
+    @IBOutlet weak var objectsBarChart: BeautifulBarChart!
+    @IBOutlet weak var importsBarChart: BasicBarChart!
     
     var inheritances = [Inheritance]()
     var scanStats: Stats?

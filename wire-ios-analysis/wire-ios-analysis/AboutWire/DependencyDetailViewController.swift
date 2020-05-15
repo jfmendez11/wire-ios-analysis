@@ -14,7 +14,7 @@ class DependencyDetailViewController: UIViewController {
     @IBOutlet weak var latestReleaseDateLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var commentsContainerView: UIView!
-    @IBOutlet weak var languagesBarChart: BasicBarChart!
+    @IBOutlet weak var languagesBarChart: BeautifulBarChart!
     
     var repoName: String?
     var descriptionText: String?
@@ -110,13 +110,11 @@ class DependencyDetailViewController: UIViewController {
         colors["Makefile"] = #colorLiteral(red: 0.2588235294, green: 0.4705882353, blue: 0.09803921569, alpha: 1)
         colors["C++"] = #colorLiteral(red: 0.9529411765, green: 0.2941176471, blue: 0.4901960784, alpha: 1)
         var result: [DataEntry] = []
-        let baseHeight = [Int](languages.values).max()
-        var i = 0
+        let denominator = languages.values.reduce(0, +)
         for (key,value) in languages {
-            //(arc4random() % 90) + 10
-            let height: Float = Float(value) / Float(baseHeight!)
-            result.append(DataEntry(color: colors[key]!, height: height, textValue: "\(value)", title: key))
-            i += 1
+            let valuePercentage = (Float(value) / Float(denominator))*100
+            let height = valuePercentage/100
+            result.append(DataEntry(color: colors[key]!, height: height, textValue: "\(String(format: "%.2f", valuePercentage))%", title: key))
         }
         return result
     }

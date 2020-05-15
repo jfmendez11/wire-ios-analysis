@@ -9,7 +9,7 @@ import UIKit
 
 class DependenciesViewController: UIViewController {
     @IBOutlet weak var overviewTextLabel: UILabel!
-    @IBOutlet weak var frequencyBarChart: BeautifulBarChart!
+    @IBOutlet weak var frequencyBarChart: BasicBarChart!
     @IBOutlet weak var dependenciesTable: UITableView!
     @IBOutlet weak var prosTable: UITableView!
     @IBOutlet weak var consTable: UITableView!

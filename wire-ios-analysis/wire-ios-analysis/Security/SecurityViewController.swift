@@ -21,6 +21,10 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var objectsBarChart: BeautifulBarChart!
     @IBOutlet weak var importsBarChart: BasicBarChart!
     
+    
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var folderLabel: UILabel!
     @IBOutlet weak var genericHashLabel: UILabel!
     @IBOutlet weak var chaChaLabel: UILabel!
@@ -72,6 +76,18 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
         return cv
     }()
     
+    fileprivate let permissionLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont.systemFont(ofSize: 12)
+        lbl.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        lbl.textAlignment = .justified
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.clipsToBounds = true
+        lbl.adjustsFontSizeToFitWidth = true
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         permissionView.addSubview(collectionView)
@@ -80,6 +96,15 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
         collectionView.leadingAnchor.constraint(equalTo: permissionView.leadingAnchor, constant: 8).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: permissionView.trailingAnchor, constant: 0).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        permissionLabel.text = getPermissionsText()
+        permissionView.addSubview(permissionLabel)
+        permissionLabel.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
+        permissionLabel.layer.cornerRadius = 10
+        permissionLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 8).isActive = true
+        permissionLabel.leadingAnchor.constraint(equalTo: permissionView.leadingAnchor, constant: 8).isActive = true
+        permissionLabel.trailingAnchor.constraint(equalTo: permissionView.trailingAnchor, constant: -8).isActive = true
+        permissionLabel.bottomAnchor.constraint(equalTo: permissionView.bottomAnchor, constant: -8).isActive = true
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -116,6 +141,10 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
         consTable.isScrollEnabled = false
         consTable.separatorColor = .white
         consTable.reloadData()
+        
+        scrollView.delegate = self
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 10.0
         // Do any additional setup after loading the view.
         self.loadAnalysisData()
     }
@@ -126,6 +155,10 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
             self.dataInstances()
         }
         timer.fire()
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return containerView
     }
     
     private func emptyInstances() {
@@ -212,6 +245,12 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
         In this section, we will discuss Wire's security for their iOS application. As mentioned in the About Wire section, one of the most important components of Wire's value proposition is their security. Therefore,  we will analyse the different permissions Wire asks their users.
         
         Additionally, Wire security is managed by the WireCryptobox framework (which is also described in the About Wire/Dependencies section). However in this section we will analyse this dependency in more detail.
+        """
+    }
+    
+    private func getPermissionsText() -> String {
+        return """
+        We can observe that Wire clearly informs the user why they need the permissions. Taking into account Cryptobox framework, all of this data travels encrypted.
         """
     }
     
