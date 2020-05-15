@@ -13,6 +13,10 @@
 		5874979E246D24AD00FD8008 /* DependencyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5874979D246D24AD00FD8008 /* DependencyDetailViewController.swift */; };
 		587497A0246E0C6800FD8008 /* ProsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5874979F246E0C6800FD8008 /* ProsTableViewCell.swift */; };
 		587497A2246E0CA300FD8008 /* ConsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497A1246E0CA300FD8008 /* ConsTableViewCell.swift */; };
+		587497A5246E3EDB00FD8008 /* SecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497A4246E3EDB00FD8008 /* SecurityViewController.swift */; };
+		587497A8246E5BE300FD8008 /* cryptobox_analysis.json in Resources */ = {isa = PBXBuildFile; fileRef = 587497A7246E5BE300FD8008 /* cryptobox_analysis.json */; };
+		587497AA246E7D6500FD8008 /* ProsSecTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497A9246E7D6500FD8008 /* ProsSecTableViewCell.swift */; };
+		587497AC246E7D8200FD8008 /* ConsSecTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497AB246E7D8200FD8008 /* ConsSecTableViewCell.swift */; };
 		58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB628D245E369100BA91C2 /* AppDelegate.swift */; };
 		58FB6290245E369100BA91C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB628F245E369100BA91C2 /* SceneDelegate.swift */; };
 		58FB6295245E369100BA91C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FB6293245E369100BA91C2 /* Main.storyboard */; };
@@ -64,6 +68,10 @@
 		5874979D246D24AD00FD8008 /* DependencyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyDetailViewController.swift; sourceTree = "<group>"; };
 		5874979F246E0C6800FD8008 /* ProsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProsTableViewCell.swift; sourceTree = "<group>"; };
 		587497A1246E0CA300FD8008 /* ConsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsTableViewCell.swift; sourceTree = "<group>"; };
+		587497A4246E3EDB00FD8008 /* SecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityViewController.swift; sourceTree = "<group>"; };
+		587497A7246E5BE300FD8008 /* cryptobox_analysis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cryptobox_analysis.json; sourceTree = "<group>"; };
+		587497A9246E7D6500FD8008 /* ProsSecTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProsSecTableViewCell.swift; sourceTree = "<group>"; };
+		587497AB246E7D8200FD8008 /* ConsSecTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsSecTableViewCell.swift; sourceTree = "<group>"; };
 		58FB628A245E369100BA91C2 /* wire-ios-analysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wire-ios-analysis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FB628D245E369100BA91C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58FB628F245E369100BA91C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +128,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		587497A3246E3CA800FD8008 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				587497A6246E5BC300FD8008 /* Resources */,
+				587497A4246E3EDB00FD8008 /* SecurityViewController.swift */,
+				587497A9246E7D6500FD8008 /* ProsSecTableViewCell.swift */,
+				587497AB246E7D8200FD8008 /* ConsSecTableViewCell.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
+		587497A6246E5BC300FD8008 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				587497A7246E5BE300FD8008 /* cryptobox_analysis.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		58FB6281245E369100BA91C2 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +168,7 @@
 		58FB628C245E369100BA91C2 /* wire-ios-analysis */ = {
 			isa = PBXGroup;
 			children = (
+				587497A3246E3CA800FD8008 /* Security */,
 				9D8BA785246CBE7F00220AF8 /* UIUX */,
 				58FB62B4246A158000BA91C2 /* AboutWire */,
 				9D0519102467406B00B02B17 /* Utilities */,
@@ -341,6 +369,7 @@
 				58FB629A245E369400BA91C2 /* LaunchScreen.storyboard in Resources */,
 				9D8C6990246D70E000F5E9AA /* CardTableViewCell.xib in Resources */,
 				58FB6297245E369400BA91C2 /* Assets.xcassets in Resources */,
+				587497A8246E5BE300FD8008 /* cryptobox_analysis.json in Resources */,
 				58FB6295245E369100BA91C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,9 +396,11 @@
 				58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */,
 				58FB62BA246A319000BA91C2 /* AboutWireViewController.swift in Sources */,
 				58749798246CF35900FD8008 /* DependenciesViewController.swift in Sources */,
+				587497AC246E7D8200FD8008 /* ConsSecTableViewCell.swift in Sources */,
 				587497A2246E0CA300FD8008 /* ConsTableViewCell.swift in Sources */,
 				5874979C246D16C000FD8008 /* DependciesTableViewCell.swift in Sources */,
 				9D05190F24673FE600B02B17 /* Constants.swift in Sources */,
+				587497AA246E7D6500FD8008 /* ProsSecTableViewCell.swift in Sources */,
 				587497A0246E0C6800FD8008 /* ProsTableViewCell.swift in Sources */,
 				9D8BA79B246CE52D00220AF8 /* Section.swift in Sources */,
 				9D8C6993246D70EA00F5E9AA /* UIUXViewController.swift in Sources */,
@@ -385,6 +416,7 @@
 				58FB62CA246B839D00BA91C2 /* BeautifulBarChartPresenter.swift in Sources */,
 				58FB62D7246B871500BA91C2 /* CALayerExtension.swift in Sources */,
 				58FB62B6246A15B100BA91C2 /* RatingAndReviewsClient.swift in Sources */,
+				587497A5246E3EDB00FD8008 /* SecurityViewController.swift in Sources */,
 				9D8BA799246CC52900220AF8 /* UIDetailViewController.swift in Sources */,
 				9D05190B2467300500B02B17 /* Utilities.swift in Sources */,
 				58FB62D9246B873400BA91C2 /* ArrayExtension.swift in Sources */,

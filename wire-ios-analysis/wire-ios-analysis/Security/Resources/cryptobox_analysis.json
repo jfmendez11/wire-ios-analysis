@@ -1,0 +1,82 @@
+{
+    "inheritances" : [
+      {
+        "name" : "UIViewController",
+        "value" : 0
+      },
+      {
+        "name" : "UIView",
+        "value" : 0
+      },
+      {
+        "name" : "SwiftUI.View",
+        "value" : 0
+      }
+    ],
+    "scanStats" : {
+      "longestFile" : {
+        "name" : "EncryptionSessionsDirectoryTests.swift",
+        "value" : 645
+      },
+      "totalLinesOfCode" : 12412,
+      "scannedFiles" : 125,
+      "totalStrippedLinesOfCode" : 11416,
+      "longestType" : {
+        "name" : "EncryptionSessionsDirectoryTests",
+        "value" : 621
+      }
+    },
+    "objects" : {
+      "classes" : 83,
+      "protocols" : 8,
+      "extensions" : 101,
+      "structs" : 17,
+      "enums" : 10
+    },
+    "imports" : [
+      {
+        "name" : "Foundation",
+        "value" : 65
+      },
+      {
+        "name" : "XCTest",
+        "value" : 49
+      },
+      {
+        "name" : "WireUtilities",
+        "value" : 23
+      },
+      {
+        "name" : "WireSystem",
+        "value" : 13
+      },
+      {
+        "name" : "UIKit",
+        "value" : 7
+      },
+      {
+        "name" : "WireCryptobox",
+        "value" : 6
+      },
+      {
+        "name" : "WireTesting",
+        "value" : 5
+      },
+      {
+        "name" : "MobileCoreServices",
+        "value" : 2
+      },
+      {
+        "name" : "CoreData",
+        "value" : 2
+      },
+      {
+        "name" : "os.log",
+        "value" : 2
+      },
+      {
+        "name" : "Swift",
+        "value" : 1
+      }
+    ]
+  }
