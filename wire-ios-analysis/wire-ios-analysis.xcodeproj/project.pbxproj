@@ -22,6 +22,7 @@
 		587497B9246FA9FB00FD8008 /* PerformanceSmallDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497B8246FA9FB00FD8008 /* PerformanceSmallDetailViewController.swift */; };
 		587497BC246FB9EB00FD8008 /* PerformanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497BA246FB9EB00FD8008 /* PerformanceTableViewCell.swift */; };
 		587497BD246FB9EB00FD8008 /* PerformanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 587497BB246FB9EB00FD8008 /* PerformanceTableViewCell.xib */; };
+		587497BF246FC79700FD8008 /* framework_size.json in Resources */ = {isa = PBXBuildFile; fileRef = 587497BE246FC79700FD8008 /* framework_size.json */; };
 		58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB628D245E369100BA91C2 /* AppDelegate.swift */; };
 		58FB6290245E369100BA91C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB628F245E369100BA91C2 /* SceneDelegate.swift */; };
 		58FB6295245E369100BA91C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FB6293245E369100BA91C2 /* Main.storyboard */; };
@@ -88,6 +89,7 @@
 		587497B8246FA9FB00FD8008 /* PerformanceSmallDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceSmallDetailViewController.swift; sourceTree = "<group>"; };
 		587497BA246FB9EB00FD8008 /* PerformanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTableViewCell.swift; sourceTree = "<group>"; };
 		587497BB246FB9EB00FD8008 /* PerformanceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerformanceTableViewCell.xib; sourceTree = "<group>"; };
+		587497BE246FC79700FD8008 /* framework_size.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = framework_size.json; sourceTree = "<group>"; };
 		58FB628A245E369100BA91C2 /* wire-ios-analysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wire-ios-analysis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FB628D245E369100BA91C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58FB628F245E369100BA91C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				58749795246C890B00FD8008 /* code_analysis.json */,
+				587497BE246FC79700FD8008 /* framework_size.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				587497BD246FB9EB00FD8008 /* PerformanceTableViewCell.xib in Resources */,
 				9D8C6990246D70E000F5E9AA /* CardTableViewCell.xib in Resources */,
 				58FB6297245E369400BA91C2 /* Assets.xcassets in Resources */,
+				587497BF246FC79700FD8008 /* framework_size.json in Resources */,
 				9DB5A7CA246ECBC100513861 /* ConnectivityTableViewCell.xib in Resources */,
 				587497A8246E5BE300FD8008 /* cryptobox_analysis.json in Resources */,
 				58FB6295245E369100BA91C2 /* Main.storyboard in Resources */,

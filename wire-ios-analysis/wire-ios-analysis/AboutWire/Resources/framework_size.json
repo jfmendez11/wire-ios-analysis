@@ -1,0 +1,18 @@
+{
+    "wire-ios-sync-engine" : 45838,
+    "wire-ios-data-model" : 15190,
+    "wire-ios-request-strategy" : 3043,
+    "wire-ios-transport" : 1226,
+    "wire-ios-mocktransport" : 1324,
+    "wire-ios-share-engine" : 582,
+    "wire-ios-system" : 452,
+    "wire-ios-utilities" : 1225,
+    "wire-ios-canvas" : 8415,
+    "wire-ios-testing" : 8613,
+    "wire-ios-cryptobox" : 24634,
+    "wire-ios-images" : 20060,
+    "wire-ios-link-preview" : 394,
+    "wire-ios-protos" : 1604,
+    "wire-ios-ziphy" : 974,
+    "avs-ios-binaries" : 25
+}

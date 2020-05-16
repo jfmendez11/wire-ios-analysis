@@ -10,6 +10,7 @@ import UIKit
 
 class DependciesTableViewCell: UITableViewCell {
     @IBOutlet weak var dependencyNameLabel: UILabel!
+    @IBOutlet weak var dependencySizeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

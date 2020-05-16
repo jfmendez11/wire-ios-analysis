@@ -375,7 +375,7 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtQ-5n-SdU">
-                                                                            <rect key="frame" x="8" y="8" width="327" height="25"/>
+                                                                            <rect key="frame" x="8" y="8" width="236" height="25"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="25" id="ZKQ-ST-nvw"/>
                                                                             </constraints>
@@ -383,16 +383,29 @@
                                                                             <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irb-cQ-ePz">
+                                                                            <rect key="frame" x="252" y="8" width="75" height="25"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="75" id="yt5-JQ-rdU"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="14"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
                                                                     </subviews>
                                                                     <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="Irb-cQ-ePz" secondAttribute="trailing" constant="16" id="1v1-ZN-gEX"/>
                                                                         <constraint firstAttribute="bottom" secondItem="dtQ-5n-SdU" secondAttribute="bottom" constant="8" id="4Sf-u3-9I1"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="dtQ-5n-SdU" secondAttribute="trailing" constant="8" id="F2V-fw-a2m" userLabel="trailing = name.trailing + 8"/>
+                                                                        <constraint firstItem="Irb-cQ-ePz" firstAttribute="leading" secondItem="dtQ-5n-SdU" secondAttribute="trailing" constant="8" id="J69-Ai-fPP"/>
                                                                         <constraint firstItem="dtQ-5n-SdU" firstAttribute="top" secondItem="8Mk-N8-ofR" secondAttribute="top" constant="8" id="Z1u-aq-NeS"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Irb-cQ-ePz" secondAttribute="bottom" constant="8" id="gNV-Jn-fJ5"/>
+                                                                        <constraint firstItem="Irb-cQ-ePz" firstAttribute="top" secondItem="8Mk-N8-ofR" secondAttribute="top" constant="8" id="pCj-60-I5E"/>
                                                                         <constraint firstItem="dtQ-5n-SdU" firstAttribute="leading" secondItem="8Mk-N8-ofR" secondAttribute="leading" constant="8" id="pYH-lh-8UD"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
                                                                 <connections>
                                                                     <outlet property="dependencyNameLabel" destination="dtQ-5n-SdU" id="ckL-O3-GWk"/>
+                                                                    <outlet property="dependencySizeLabel" destination="Irb-cQ-ePz" id="In1-4u-Zj0"/>
                                                                     <segue destination="xiv-8p-pvj" kind="presentation" identifier="dependencyToDetail" id="UXu-4e-nYH"/>
                                                                 </connections>
                                                             </tableViewCell>

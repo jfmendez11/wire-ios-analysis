@@ -25,6 +25,7 @@ class DependenciesViewController: UIViewController, UIScrollViewDelegate {
     var selectedRepo: String?
     
     var imports = [Import]()
+    var sizes = [String:Int]()
     
     let dependencies = ["WireSyncEngine", "WireDataModel", "WireRequestStrategy", "WireTransport", "WireMockTransport", "WireShareEngine", "WireSystem", "WireUtilities", "WireCanvas", "WireTesting", "WireCryptobox", "WireImages", "WireLinkPreview", "WireProtos", "Ziphy", "avs"]
     
@@ -107,10 +108,10 @@ class DependenciesViewController: UIViewController, UIScrollViewDelegate {
     """]
     
     let cons = ["""
-    High maintainance
+    Too many dependencies -> Heavy maintainance
     """,
     """
-    Difficult to debug (too many dependencies)
+    Too many dependencies -> Difficult to debug
     """,
     """
     Lost work (wire-ios-message-strategy not longer used)
@@ -150,6 +151,7 @@ class DependenciesViewController: UIViewController, UIScrollViewDelegate {
         scrollView.maximumZoomScale = 10.0
         
         self.loadFrequencyData()
+        self.loadFrameworkSize()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -203,6 +205,18 @@ class DependenciesViewController: UIViewController, UIScrollViewDelegate {
                         dependencies.contains(imp.name)
                     }
                 }
+            } catch {
+                onError()
+            }
+        }
+    }
+    
+    private func loadFrameworkSize() {
+        if let path = Bundle.main.path(forResource: "framework_size", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let jsonData = try? JSONSerialization.jsonObject(with: data, options: [])
+                sizes = jsonData as! [String:Int]
             } catch {
                 onError()
             }
@@ -265,8 +279,9 @@ extension DependenciesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == dependenciesTable, let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? DependciesTableViewCell {
-            let name = dependencyRepoName[indexPath.row]
-            cell.dependencyNameLabel.text = name
+            let i = sizes.index(forKey: dependencyRepoName[indexPath.row])
+            cell.dependencyNameLabel.text = sizes[i!].key
+            cell.dependencySizeLabel.text = "\(sizes[i!].value) kB"
             return cell
         } else if tableView == prosTable, let cell = tableView.dequeueReusableCell(withIdentifier: prosReuseIdentifier, for: indexPath) as? ProsTableViewCell {
             let pro = pros[indexPath.row]
