@@ -9,7 +9,8 @@
 import UIKit
 
 class StartViewController: UIViewController {
-
+    @IBOutlet weak var namesLabel: UILabel!
+    
     let image = UIImageView()
     @IBOutlet weak var button: UIButton!
     
@@ -17,6 +18,9 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         Utilities.styleFilledButton(button)
         // Do any additional setup after loading the view
+        namesLabel.adjustsFontSizeToFitWidth = true
+        namesLabel.numberOfLines = 0
+        namesLabel.text = getNames()
     }
     
     @IBAction func buttonTapped(_ sender: Any) {
@@ -24,5 +28,12 @@ class StartViewController: UIViewController {
         
         view.window?.rootViewController = tabViewController
         view.window?.makeKeyAndVisible()
+    }
+    
+    private func getNames() -> String {
+        return """
+        Diana Cepeda       201613662
+        Juan Felipe Méndez 201423877
+        """
     }
 }

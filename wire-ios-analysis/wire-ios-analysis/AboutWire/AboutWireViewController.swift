@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutWireViewController: UIViewController {
+class AboutWireViewController: UIViewController, UIScrollViewDelegate {
     
     var models = [RatingAndReviewModel]()
     @IBOutlet weak var ratingAndReviewView: UIView!
@@ -16,6 +16,10 @@ class AboutWireViewController: UIViewController {
     @IBOutlet weak var totalRatingCountLabel: UILabel!
     @IBOutlet weak var descriptionTextLabel: UILabel!
     @IBOutlet weak var featuresTextLabel: UILabel!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
+    
     
     @IBOutlet weak var appImage: UIImageView!
     
@@ -54,7 +58,16 @@ class AboutWireViewController: UIViewController {
         appImage.addGestureRecognizer(tapGestureRecognizer)
         appImage.isUserInteractionEnabled = true
         // Do any additional setup after loading the view.
+        
+        scrollView.delegate = self
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 10.0
+        
         self.getRatingsAndReviews()
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return containerView
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {

@@ -8,12 +8,14 @@
 
 import UIKit
 
-class ArchitectureViewController: UIViewController {
+class ArchitectureViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var introLabel: UILabel!
     @IBOutlet weak var followUpLabel: UILabel!
     
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +27,13 @@ class ArchitectureViewController: UIViewController {
         followUpLabel.textAlignment = .justified
         followUpLabel.text = getFollowUp()
         // Do any additional setup after loading the view.
+        scrollView.delegate = self
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 10.0
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return containerView
     }
     
     private func getIntro() -> String {

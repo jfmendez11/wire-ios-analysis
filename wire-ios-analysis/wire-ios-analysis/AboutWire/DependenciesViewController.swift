@@ -7,12 +7,15 @@
 //
 import UIKit
 
-class DependenciesViewController: UIViewController {
+class DependenciesViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var overviewTextLabel: UILabel!
     @IBOutlet weak var frequencyBarChart: BasicBarChart!
     @IBOutlet weak var dependenciesTable: UITableView!
     @IBOutlet weak var prosTable: UITableView!
     @IBOutlet weak var consTable: UITableView!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
     
     
     let cellReuseIdentifier = "dependencyCell"
@@ -142,6 +145,10 @@ class DependenciesViewController: UIViewController {
         consTable.separatorColor = .white
         consTable.reloadData()
         
+        scrollView.delegate = self
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 10.0
+        
         self.loadFrequencyData()
     }
     
@@ -153,6 +160,10 @@ class DependenciesViewController: UIViewController {
             self.frequencyBarChart.updateDataEntries(dataEntries: importEntries, animated: true)
         }
         timer.fire()
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return containerView
     }
     
     private func generateEmptyDataEntries(count: Int) -> [DataEntry] {

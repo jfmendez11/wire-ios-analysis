@@ -17,6 +17,11 @@
 		587497A8246E5BE300FD8008 /* cryptobox_analysis.json in Resources */ = {isa = PBXBuildFile; fileRef = 587497A7246E5BE300FD8008 /* cryptobox_analysis.json */; };
 		587497AA246E7D6500FD8008 /* ProsSecTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497A9246E7D6500FD8008 /* ProsSecTableViewCell.swift */; };
 		587497AC246E7D8200FD8008 /* ConsSecTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497AB246E7D8200FD8008 /* ConsSecTableViewCell.swift */; };
+		587497B1246FA7DD00FD8008 /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497B0246FA7DD00FD8008 /* PerformanceViewController.swift */; };
+		587497B7246FA8C000FD8008 /* PerfomanceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497B6246FA8C000FD8008 /* PerfomanceDetailViewController.swift */; };
+		587497B9246FA9FB00FD8008 /* PerformanceSmallDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497B8246FA9FB00FD8008 /* PerformanceSmallDetailViewController.swift */; };
+		587497BC246FB9EB00FD8008 /* PerformanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587497BA246FB9EB00FD8008 /* PerformanceTableViewCell.swift */; };
+		587497BD246FB9EB00FD8008 /* PerformanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 587497BB246FB9EB00FD8008 /* PerformanceTableViewCell.xib */; };
 		58FB628E245E369100BA91C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB628D245E369100BA91C2 /* AppDelegate.swift */; };
 		58FB6290245E369100BA91C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FB628F245E369100BA91C2 /* SceneDelegate.swift */; };
 		58FB6295245E369100BA91C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58FB6293245E369100BA91C2 /* Main.storyboard */; };
@@ -78,6 +83,11 @@
 		587497A7246E5BE300FD8008 /* cryptobox_analysis.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cryptobox_analysis.json; sourceTree = "<group>"; };
 		587497A9246E7D6500FD8008 /* ProsSecTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProsSecTableViewCell.swift; sourceTree = "<group>"; };
 		587497AB246E7D8200FD8008 /* ConsSecTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsSecTableViewCell.swift; sourceTree = "<group>"; };
+		587497B0246FA7DD00FD8008 /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
+		587497B6246FA8C000FD8008 /* PerfomanceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfomanceDetailViewController.swift; sourceTree = "<group>"; };
+		587497B8246FA9FB00FD8008 /* PerformanceSmallDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceSmallDetailViewController.swift; sourceTree = "<group>"; };
+		587497BA246FB9EB00FD8008 /* PerformanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTableViewCell.swift; sourceTree = "<group>"; };
+		587497BB246FB9EB00FD8008 /* PerformanceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerformanceTableViewCell.xib; sourceTree = "<group>"; };
 		58FB628A245E369100BA91C2 /* wire-ios-analysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wire-ios-analysis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58FB628D245E369100BA91C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58FB628F245E369100BA91C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +169,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		587497AD246FA75100FD8008 /* Performance */ = {
+			isa = PBXGroup;
+			children = (
+				587497B0246FA7DD00FD8008 /* PerformanceViewController.swift */,
+				587497B6246FA8C000FD8008 /* PerfomanceDetailViewController.swift */,
+				587497B8246FA9FB00FD8008 /* PerformanceSmallDetailViewController.swift */,
+				587497BA246FB9EB00FD8008 /* PerformanceTableViewCell.swift */,
+				587497BB246FB9EB00FD8008 /* PerformanceTableViewCell.xib */,
+			);
+			path = Performance;
+			sourceTree = "<group>";
+		};
 		58FB6281245E369100BA91C2 = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +202,7 @@
 		58FB628C245E369100BA91C2 /* wire-ios-analysis */ = {
 			isa = PBXGroup;
 			children = (
+				587497AD246FA75100FD8008 /* Performance */,
 				9DB5A7C0246ECBA100513861 /* Eventual Connectivity */,
 				587497A3246E3CA800FD8008 /* Security */,
 				9D8BA785246CBE7F00220AF8 /* UIUX */,
@@ -393,6 +416,7 @@
 			files = (
 				58749796246C890B00FD8008 /* code_analysis.json in Resources */,
 				58FB629A245E369400BA91C2 /* LaunchScreen.storyboard in Resources */,
+				587497BD246FB9EB00FD8008 /* PerformanceTableViewCell.xib in Resources */,
 				9D8C6990246D70E000F5E9AA /* CardTableViewCell.xib in Resources */,
 				58FB6297245E369400BA91C2 /* Assets.xcassets in Resources */,
 				9DB5A7CA246ECBC100513861 /* ConnectivityTableViewCell.xib in Resources */,
@@ -425,6 +449,7 @@
 				58749798246CF35900FD8008 /* DependenciesViewController.swift in Sources */,
 				587497AC246E7D8200FD8008 /* ConsSecTableViewCell.swift in Sources */,
 				587497A2246E0CA300FD8008 /* ConsTableViewCell.swift in Sources */,
+				587497B1246FA7DD00FD8008 /* PerformanceViewController.swift in Sources */,
 				5874979C246D16C000FD8008 /* DependciesTableViewCell.swift in Sources */,
 				9D05190F24673FE600B02B17 /* Constants.swift in Sources */,
 				9DB5A7BF246ECB9300513861 /* SectionCode.swift in Sources */,
@@ -436,6 +461,7 @@
 				58FB62D1246B867100BA91C2 /* DataEntry.swift in Sources */,
 				58FB62D5246B86D300BA91C2 /* UIBezierPathExtension.swift in Sources */,
 				9DB5A7C9246ECBC100513861 /* ConnectivityTableViewCell.swift in Sources */,
+				587497B7246FA8C000FD8008 /* PerfomanceDetailViewController.swift in Sources */,
 				9D8C6991246D70E000F5E9AA /* DropShadowView.swift in Sources */,
 				58FB62D3246B86A300BA91C2 /* CustomSegments.swift in Sources */,
 				5874979E246D24AD00FD8008 /* DependencyDetailViewController.swift in Sources */,
@@ -450,10 +476,12 @@
 				587497A5246E3EDB00FD8008 /* SecurityViewController.swift in Sources */,
 				9D8BA799246CC52900220AF8 /* UIDetailViewController.swift in Sources */,
 				9D05190B2467300500B02B17 /* Utilities.swift in Sources */,
+				587497B9246FA9FB00FD8008 /* PerformanceSmallDetailViewController.swift in Sources */,
 				58FB62D9246B873400BA91C2 /* ArrayExtension.swift in Sources */,
 				58FB62C8246B835600BA91C2 /* BeautifulBarChart.swift in Sources */,
 				9DB5A7C7246ECBC100513861 /* EventualConnectivityViewController.swift in Sources */,
 				58FB6290245E369100BA91C2 /* SceneDelegate.swift in Sources */,
+				587497BC246FB9EB00FD8008 /* PerformanceTableViewCell.swift in Sources */,
 				9D8C698F246D70E000F5E9AA /* CardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

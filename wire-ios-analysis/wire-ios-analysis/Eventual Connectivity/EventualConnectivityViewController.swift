@@ -26,7 +26,7 @@ class EventualConnectivityViewController: UIViewController {
         tableView.separatorStyle = .none
                tableView.register(UINib(nibName: "ConnectivityTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
                tableView.rowHeight = self.view.frame.width
-               tableView.backgroundColor = .clear
+               tableView.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
                
                tableView.dataSource = self
                tableView.delegate = self
@@ -86,7 +86,7 @@ extension EventualConnectivityViewController : UITableViewDataSource {
     
     // Set the spacing between sections
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return cellSpacingHeight
+        return 4
     }
     // Make the background color show through
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -95,12 +95,16 @@ extension EventualConnectivityViewController : UITableViewDataSource {
         return headerView
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 260
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! ConnectivityTableViewCell
         
-        cell.layer.borderWidth = 5
-        cell.layer.borderColor =  UIColor.lightGray.cgColor
-        cell.layer.cornerRadius = 8
+        cell.layer.borderWidth = 4
+        cell.layer.borderColor =  #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
+        cell.layer.cornerRadius = 10
         cell.clipsToBounds = true
         
         cell.cardImageView.image = sectionsConnectivity[indexPath.row].image

@@ -8,13 +8,17 @@
 
 import UIKit
 
-class UIDetailViewController: UIViewController {
+class UIDetailViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var labelDescription: UITextView!
     @IBOutlet weak var codeView: UIView!
     @IBOutlet weak var labelCode: UILabel!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containterView: UIView!
+    
     
     var section:Section?
     
@@ -41,8 +45,8 @@ class UIDetailViewController: UIViewController {
         collectionView.backgroundColor = .white
         collectionView.topAnchor.constraint(equalTo: labelCode.bottomAnchor, constant: 4).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: codeView.leadingAnchor, constant: 8).isActive = true
-        collectionView.trailingAnchor.constraint(equalTo: codeView.trailingAnchor, constant: 0).isActive = true
-        collectionView.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: codeView.trailingAnchor, constant: -8).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: codeView.bottomAnchor, constant: -8).isActive = true
     
         
         collectionView.delegate = self
@@ -55,6 +59,9 @@ class UIDetailViewController: UIViewController {
         imageView.layer.masksToBounds = false
         imageView.layer.cornerRadius = 4.0
         
+        scrollView.delegate = self
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 10.0
         
         labelTitle.text = section?.title
         labelDescription.text = section?.description
@@ -65,6 +72,11 @@ class UIDetailViewController: UIViewController {
         setupInformation()
         
     }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return containterView
+    }
+    
     func setupInformation(){
          let designMetaphor1 = SectionCode(description: getDesignMetaphor1(),image: UIImage(named: "designMetaphor1")!)
                        sectionsCode1.append(designMetaphor1)
@@ -160,7 +172,7 @@ class UIDetailViewController: UIViewController {
 extension UIDetailViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: codeView.frame.width+60, height: 370)
+        return CGSize(width: codeView.frame.width/1.25, height: codeView.frame.width/1.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -224,11 +236,12 @@ class UICustomCell: UICollectionViewCell {
     
     fileprivate let descriptionLabel: UILabel = {
         let lbl = UILabel()
-        
-            lbl.textAlignment = .justified
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+            lbl.textAlignment = .natural
            lbl.font = UIFont.systemFont(ofSize: 11)
            lbl.numberOfLines = 0
-           lbl.minimumScaleFactor = 0.9
+        lbl.minimumScaleFactor = 0.75
+        lbl.adjustsFontSizeToFitWidth = true
         return lbl
     }()
     

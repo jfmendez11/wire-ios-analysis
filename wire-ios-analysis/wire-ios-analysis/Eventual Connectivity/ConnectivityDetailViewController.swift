@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ConnectivityDetailViewController: UIViewController {
+class ConnectivityDetailViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var labelDescription: UITextView!
     @IBOutlet weak var codeView: UIView!
     @IBOutlet weak var labelCode: UILabel!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
     
     var sectionConnectivity:SectionConnectivity?
     
@@ -40,8 +43,8 @@ class ConnectivityDetailViewController: UIViewController {
             collectionView.backgroundColor = .white
             collectionView.topAnchor.constraint(equalTo: labelCode.bottomAnchor, constant: 4).isActive = true
             collectionView.leadingAnchor.constraint(equalTo: codeView.leadingAnchor, constant: 8).isActive = true
-            collectionView.trailingAnchor.constraint(equalTo: codeView.trailingAnchor, constant: 0).isActive = true
-            collectionView.heightAnchor.constraint(equalToConstant: 400).isActive = true
+            collectionView.trailingAnchor.constraint(equalTo: codeView.trailingAnchor, constant: -8).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: codeView.bottomAnchor, constant: -8).isActive = true
         
             
             collectionView.delegate = self
@@ -59,7 +62,15 @@ class ConnectivityDetailViewController: UIViewController {
         labelDescription.text = sectionConnectivity?.description
         imageView.image = sectionConnectivity?.image
         
+        scrollView.delegate = self
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 10.0
+        
         setupInformation()
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return containerView
     }
     
      func setupInformation(){
@@ -88,7 +99,7 @@ class ConnectivityDetailViewController: UIViewController {
           }
     private func getStuckProgress2() -> String {
         return """
-            This snippet of code is the unwindMethod we saw on the first picture. It shows that a popoverView would appear when unwindState method is called. So, what should be done is finishing the popoverView at some moment, maybe after a certain timeout, and allow the user to navigate again through the app. Because, right now, Wire is blocking the app in this scenario.
+        This snippet of code is the unwindMethod we saw on the first picture. It shows that a popoverView would appear when unwindState method is called. So, what should be done is finishing the popoverView at some moment, maybe after a certain timeout, and allow the user to navigate again through the app. Because, right now, Wire is blocking the app in this scenario.
         """
     }
     private func getGenericMessage1() -> String {
@@ -116,7 +127,7 @@ class ConnectivityDetailViewController: UIViewController {
     extension ConnectivityDetailViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: codeView.frame.width+60, height: 370)
+            return CGSize(width: codeView.frame.width/1.25, height: codeView.frame.width/1.5)
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -176,17 +187,19 @@ class ConnectivityDetailViewController: UIViewController {
             let img = UIImageView()
               img.backgroundColor = .white
               img.layer.cornerRadius = 8.0
+            img.translatesAutoresizingMaskIntoConstraints = false
               img.clipsToBounds = true
             return img
         }()
         
         fileprivate let descriptionLabel: UILabel = {
             let lbl = UILabel()
-            
-                lbl.textAlignment = .justified
+            lbl.translatesAutoresizingMaskIntoConstraints = false
+            lbl.textAlignment = .natural
                lbl.font = UIFont.systemFont(ofSize: 11)
                lbl.numberOfLines = 0
-               lbl.minimumScaleFactor = 0.9
+               lbl.minimumScaleFactor = 0.75
+            lbl.adjustsFontSizeToFitWidth = true
             return lbl
         }()
         
@@ -208,8 +221,17 @@ class ConnectivityDetailViewController: UIViewController {
             verticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
             verticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
             verticalStackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-          
+            /*contentView.addSubview(descriptionLabel)
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
+            descriptionLabel.heightAnchor.constraint(equalToConstant: contentView.bounds.height/2).isActive = true
             
+            contentView.addSubview(imageView)
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: contentView.bounds.height/2).isActive = true
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true*/
         }
         
         required init?(coder: NSCoder) {

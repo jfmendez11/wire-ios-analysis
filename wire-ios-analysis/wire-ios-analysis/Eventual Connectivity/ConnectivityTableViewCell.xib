@@ -9,38 +9,34 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="203" id="KGk-i7-Jjw" customClass="ConnectivityTableViewCell" customModule="wire_ios_analysis" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="220" height="220"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="260" id="KGk-i7-Jjw" customClass="ConnectivityTableViewCell" customModule="wire_ios_analysis" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="260"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="220" height="220"/>
+                <rect key="frame" x="0.0" y="0.0" width="220" height="260"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCZ-nL-wz9">
-                        <rect key="frame" x="16" y="189" width="188" height="21"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Qj-Ne-Rip">
+                        <rect key="frame" x="16" y="16" width="188" height="190"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="Yfh-sY-RAm"/>
+                            <constraint firstAttribute="height" constant="190" id="imK-qa-ibo"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCZ-nL-wz9">
+                        <rect key="frame" x="32" y="214" width="156" height="27"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Qj-Ne-Rip">
-                        <rect key="frame" x="0.0" y="0.0" width="220" height="189"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="220" id="hX7-gl-sjk"/>
-                            <constraint firstAttribute="height" constant="189" id="iRf-cq-G9J"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="QCZ-nL-wz9" secondAttribute="trailing" constant="16" id="HjS-N6-4oV"/>
-                    <constraint firstItem="QCZ-nL-wz9" firstAttribute="top" secondItem="4Qj-Ne-Rip" secondAttribute="bottom" id="KoP-aF-it5"/>
-                    <constraint firstItem="4Qj-Ne-Rip" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LmV-Ln-wsW"/>
-                    <constraint firstAttribute="trailing" secondItem="4Qj-Ne-Rip" secondAttribute="trailing" id="f2K-vN-hmY"/>
-                    <constraint firstItem="4Qj-Ne-Rip" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jmd-hs-ZKN"/>
-                    <constraint firstAttribute="bottom" secondItem="QCZ-nL-wz9" secondAttribute="bottom" constant="10" id="vpP-lc-5qP"/>
-                    <constraint firstItem="QCZ-nL-wz9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="w2O-CO-C7t"/>
+                    <constraint firstAttribute="trailing" secondItem="4Qj-Ne-Rip" secondAttribute="trailing" constant="16" id="5Ex-gu-9AJ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="QCZ-nL-wz9" secondAttribute="trailing" constant="16" id="Ezc-Bl-IRd"/>
+                    <constraint firstItem="4Qj-Ne-Rip" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="GFu-lM-Zmb"/>
+                    <constraint firstItem="QCZ-nL-wz9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="16" id="INu-RX-tln"/>
+                    <constraint firstItem="QCZ-nL-wz9" firstAttribute="top" secondItem="4Qj-Ne-Rip" secondAttribute="bottom" constant="8" id="Uwd-HL-abm"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="QCZ-nL-wz9" secondAttribute="bottom" constant="8" id="tGr-e5-xfo"/>
+                    <constraint firstItem="4Qj-Ne-Rip" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="yQ5-12-KXD"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -49,7 +45,7 @@
                 <outlet property="cardImageView" destination="4Qj-Ne-Rip" id="ueo-gz-Iwx"/>
                 <outlet property="cardLabel" destination="QCZ-nL-wz9" id="Gs7-y5-l55"/>
             </connections>
-            <point key="canvasLocation" x="82.608695652173921" y="71.651785714285708"/>
+            <point key="canvasLocation" x="82.608695652173921" y="85.044642857142847"/>
         </tableViewCell>
     </objects>
 </document>
