@@ -64,7 +64,7 @@ class EventualConnectivityViewController: UIViewController {
     }
     private func getBlockedApp() -> String {
         return """
-        Wire has a problem when trying to search messages in a conversation when there's no internet connection. Whenever we are in a conversation without internet connection and the search bar is selected, the app completely shuts. It doesn't give any message but the app simply closes abruptly. This happens in class "". This is a bug that leads to problems in the user experience and should be taken into account. The class Reachability.swift is used to get the Network status.
+        Wire has a problem when trying to search messages in a conversation when there's no internet connection. Whenever we are in a conversation without internet connection and the search bar is selected, the app completely shuts. It doesn't give any message but the app simply closes abruptly. This is a bug that leads to problems in the user experience and should be taken into account. The class Reachability.swift is used to get the Network status.
 
         """
     }
