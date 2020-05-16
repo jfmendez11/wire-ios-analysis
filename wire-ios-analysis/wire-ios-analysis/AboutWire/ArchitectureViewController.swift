@@ -13,6 +13,9 @@ class ArchitectureViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var introLabel: UILabel!
     @IBOutlet weak var followUpLabel: UILabel!
     
+    @IBOutlet weak var detail1Label: UILabel!
+    @IBOutlet weak var detail2Label: UILabel!
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
     
@@ -27,6 +30,15 @@ class ArchitectureViewController: UIViewController, UIScrollViewDelegate {
         followUpLabel.textAlignment = .justified
         followUpLabel.text = getFollowUp()
         // Do any additional setup after loading the view.
+        
+        detail1Label.numberOfLines = 0
+        detail1Label.textAlignment = .justified
+        detail1Label.text = getDetail1()
+        
+        detail2Label.numberOfLines = 0
+        detail2Label.textAlignment = .justified
+        detail2Label.text = getDetail2()
+        
         scrollView.delegate = self
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 10.0
@@ -51,6 +63,18 @@ class ArchitectureViewController: UIViewController, UIScrollViewDelegate {
         The libraries source and binaries reside on GitHub. Carthage is used to resolve the dependencies and fetch the correct libraries versions.
         
         The list of all the libraries used can be found in Cartfile.resolved of the Wire-iOS project. Some other UI-related libraries are fetched via CocoaPods.
+        """
+    }
+    
+    private func getDetail1() -> String {
+        return """
+        In the image below, we can observe the connections of the different frameworks, within the architecure. All of them belong to the mobile cliente (User interfsce or Sync engine).
+        """
+    }
+    
+    private func getDetail2() -> String {
+        return """
+        A detail of wich framework is part of User Interface (Wire-iOS) and which frameworl belong to the Sync engine, can be found in the About Wire -> Dependencies section (click on the table cell!).
         """
     }
     

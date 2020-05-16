@@ -17,10 +17,11 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var permissionTitleLabel: UILabel!
     @IBOutlet weak var permissionView: UIView!
     
+    @IBOutlet weak var architectureLabel: UILabel!
+    
     @IBOutlet weak var statisticsBarChart: BasicBarChart!
     @IBOutlet weak var objectsBarChart: BeautifulBarChart!
     @IBOutlet weak var importsBarChart: BasicBarChart!
-    
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -42,6 +43,8 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
     
     
     let images = [PermissionImage(image: #imageLiteral(resourceName: "mic")), PermissionImage(image: #imageLiteral(resourceName: "location")), PermissionImage(image: #imageLiteral(resourceName: "photos")), PermissionImage(image: #imageLiteral(resourceName: "camera")), PermissionImage(image: #imageLiteral(resourceName: "contacts"))]
+    
+    let images2 = [PermissionImage(image: #imageLiteral(resourceName: "contacts2")), PermissionImage(image: #imageLiteral(resourceName: "location2")), PermissionImage(image: #imageLiteral(resourceName: "microphone")), PermissionImage(image: #imageLiteral(resourceName: "photolib")), PermissionImage(image: #imageLiteral(resourceName: "video"))]
     
     let pros = ["""
     The framework is really well made.
@@ -76,7 +79,29 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
         return cv
     }()
     
+    fileprivate let collectionView2: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.showsHorizontalScrollIndicator = false
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        cv.register(PermissionCell.self, forCellWithReuseIdentifier: "permissionCell")
+        return cv
+    }()
+    
     fileprivate let permissionLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = UIFont.systemFont(ofSize: 12)
+        lbl.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        lbl.textAlignment = .justified
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.clipsToBounds = true
+        lbl.adjustsFontSizeToFitWidth = true
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    
+    fileprivate let permissionLabel2: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.systemFont(ofSize: 12)
         lbl.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -104,10 +129,29 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
         permissionLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 8).isActive = true
         permissionLabel.leadingAnchor.constraint(equalTo: permissionView.leadingAnchor, constant: 8).isActive = true
         permissionLabel.trailingAnchor.constraint(equalTo: permissionView.trailingAnchor, constant: -8).isActive = true
-        permissionLabel.bottomAnchor.constraint(equalTo: permissionView.bottomAnchor, constant: -8).isActive = true
+        permissionLabel.heightAnchor.constraint(equalToConstant: 75).isActive = true
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        permissionView.addSubview(collectionView2)
+        collectionView2.backgroundColor = .white
+        collectionView2.topAnchor.constraint(equalTo: permissionLabel.bottomAnchor, constant: 4).isActive = true
+        collectionView2.leadingAnchor.constraint(equalTo: permissionView.leadingAnchor, constant: 8).isActive = true
+        collectionView2.trailingAnchor.constraint(equalTo: permissionView.trailingAnchor, constant: 0).isActive = true
+        collectionView2.heightAnchor.constraint(equalToConstant: 190).isActive = true
+        
+        permissionLabel2.text = getPermissionsText2()
+        permissionView.addSubview(permissionLabel2)
+        permissionLabel2.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
+        permissionLabel2.layer.cornerRadius = 10
+        permissionLabel2.topAnchor.constraint(equalTo: collectionView2.bottomAnchor, constant: 8).isActive = true
+        permissionLabel2.leadingAnchor.constraint(equalTo: permissionView.leadingAnchor, constant: 8).isActive = true
+        permissionLabel2.trailingAnchor.constraint(equalTo: permissionView.trailingAnchor, constant: -8).isActive = true
+        permissionLabel2.bottomAnchor.constraint(equalTo: permissionView.bottomAnchor, constant: -8).isActive = true
+        
+        collectionView2.delegate = self
+        collectionView2.dataSource = self
         
         introLabel.text = getIntroText()
         introLabel.textAlignment = .justified
@@ -129,6 +173,11 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
         fingerprintLabel.text = getFingerprintText()
         fingerprintLabel.adjustsFontSizeToFitWidth = true
         fingerprintLabel.numberOfLines = 0
+        
+        architectureLabel.text = getArchitectureText()
+        architectureLabel.adjustsFontSizeToFitWidth = true
+        architectureLabel.textAlignment = .justified
+        architectureLabel.numberOfLines = 0
         
         prosTable.delegate = self
         prosTable.dataSource = self
@@ -254,6 +303,12 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
         """
     }
     
+    private func getPermissionsText2() -> String {
+        return """
+        For requesting permissions to access the microphone, camera and photoLibrary do pretty much the same thing. Permissions for camera, photo library and microphone are done in class UIApplication+Permissions.swift. , while contacts does it in in class AddressBookHelper.swift. Wire requests to access the permission that the user need  for the feature. The Dispatch main queue to get the microphone or  camera  status. Every permission is only asked once in the Conversation MessageToolBox related class. In the case of Location permission, we couldn’t find the snippet of code where a request for permission is called. In the info.plist we found that this permission is used but in the code it is hard to find. The closest function we could find is openInMaps in class ZMLocationMessageData+Coordinates.swift. We found that this function is called only in the ConversationLocationMessageCel.swift which corresponds to where the share location button is.
+        """
+    }
+    
     private func getFolderText() -> String {
         return """
         As mentioned in the About Wire -> Dependencies -> wire-ios-cryptobox section, this framework provides cross-compilation of cryptobox for iOS, in the form of satic libraries.
@@ -287,6 +342,12 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
         Whenever there's a cahce miss, the framework purges the cache of encrypted payloads. One innteresting thing, is that the app doesn't load, decrypt, save, unloads everytime. Instead it saves pending sessions at the end, which improves performance and works with eventual connectivity.
         
         Finally, the second image (Lines 319-357), shows cache handling as mentioned before (all the pending sessions and micro-optimizations done by the app). However, onn lines 351-356, we can observe the "fingerprint" function, which creates a "finngerptint" of the device in order to verify the identity of the sender. Not only that, but the framework can also "see" the fingerprints of other devices and other users.
+        """
+    }
+    
+    private func getArchitectureText() -> String {
+        return """
+        In the image above, we can observe the difference dependecies used by wire-iOS-cryptobox. Notice that it uses mocktransport, which is the testing framework. The other ones are wire-ios-data-model (the CoreData-based storage library), wire-ios-system (the ASL, profiling and wrapper library). Wire DataModel belongs to the sync engine and the other ones belong to the UI.
         """
     }
     
@@ -334,7 +395,7 @@ class PermissionCell: UICollectionViewCell {
     fileprivate let permissionImage: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .scaleAspectFill
+        iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
         return iv
     }()
@@ -357,6 +418,9 @@ class PermissionCell: UICollectionViewCell {
 extension SecurityViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == collectionView2 {
+            return CGSize(width: collectionView.frame.width/1.25, height: collectionView.frame.width/2)
+        }
         return CGSize(width: collectionView.frame.width/1.25, height: 200)
     }
     
@@ -367,8 +431,13 @@ extension SecurityViewController: UICollectionViewDelegateFlowLayout, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "permissionCell", for: indexPath) as! PermissionCell
         //cell.backgroundColor = UIColor(red: CGFloat(231)/255.0, green: CGFloat(231)/255.0, blue: CGFloat(231)/255.0, alpha: 1.0)
-        cell.image = self.images[indexPath.row]
-        return cell
+        if collectionView == collectionView2 {
+            cell.image = self.images2[indexPath.row]
+            return cell
+        } else {
+            cell.image = self.images[indexPath.row]
+            return cell
+        }
     }
 }
 
