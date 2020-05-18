@@ -72,7 +72,7 @@ class PerformanceViewController: UIViewController {
             return """
             To analyze the CPU, Memory and Network performance we used xcode’s instruments and we ran the app in the simulator. In this first part, we are going to talk about CPU. The scenario of the user trying to send an image in a conversation is the one that we’ll be focusing on and the one that would be analyzed. The results gotten when doing the analysis for the can be seen in the picture above.
 
-            The highest value of the CPU usage when trying to send a picture is over 200% percent. We assume it could be related with the simulator capabilities because it doesn’t get the same processor speed when compared with a physical phone. The peak is from selecting the image and trying to send it, but it gets low when the image is already sent. What made us curious is the fact that the other movement of the graph corresponds to trying to send a new picture. As we can see, Wire manages better the CPU usage as this action was already performed, and the difference between the first and second graph movement is pretty much noticeable.
+            The highest value of the CPU usage when trying to send a picture is at 227% percent. We assume it could be related with the simulator capabilities because it doesn’t get the same processor speed when compared with a physical phone. The peak is from selecting the image and trying to send it, but then it gets to 96% when the image is already sent. What made us curious is the fact that the other movement of the graph corresponds to trying to send a new picture. As we can see, Wire manages better the CPU usage as this action was already performed, and the difference between the first and second graph movement is pretty much noticeable.
 
             Another thing is that Wire has over 20 threads, and the one used for this task is Thread 1. Wire has the other threads not doing anything which isn’t really affecting CPU usage. Even though, as a good practice its recommended to deactivate those threads that are in background because they aren’t doing any task at this moment.
 
@@ -89,9 +89,7 @@ class PerformanceViewController: UIViewController {
         }
         private func getDisk() -> String {
             return """
-                For the disk usage analysis, we found that the highest reading rate was 22,5 MB, while the highest rate in the writing rate is 25,7 MB. The highest reading rate happens when the user is picking the image to send, and when the message is sending and then is sent, it lowers substantially. The writing rate is stable throughout the process of sending a message.
-
-
+                For the disk usage analysis, we found that the highest reading rate was 22,5 MB, while the highest rate in the writing rate is 25,7 MB. The highest reading rate happens when the user is picking the image to send, and when the message is sending and then is sent with 5,9 MB / s, it lowers substantially to about 2,3 MB / s. The writing rate is stable throughout the process of sending a message.
             """
         }
         private func getNetwork() -> String {
@@ -186,29 +184,14 @@ class PerformanceViewController: UIViewController {
             selectedIndexPath = indexPath.row
             print("selectedIndexPath en UIUX\(selectedIndexPath)")
             
-            if selectedIndexPath == 0 {
-                    performSegue(withIdentifier: "pDetail", sender: self)
-            }
-            else if selectedIndexPath == 1 {
-                    performSegue(withIdentifier: "pSmallDetail", sender: self)
-            }
-            else if selectedIndexPath == 2 {
-                   performSegue(withIdentifier: "pSmallDetail", sender: self)
-            }
-            else if selectedIndexPath == 3 {
-                   performSegue(withIdentifier: "pSmallDetail", sender: self)
-            }
-            else if selectedIndexPath == 4 {
-                   performSegue(withIdentifier: "pSmallDetail", sender: self)
-            }
-            else if selectedIndexPath == 5 {
-                   performSegue(withIdentifier: "pSmallDetail", sender: self)
-            }
-            else if selectedIndexPath == 6 {
+            if selectedIndexPath == 5 {
                     performSegue(withIdentifier: "pSmallDetail", sender: self)
             }
             else if selectedIndexPath == 7 {
                     performSegue(withIdentifier: "pSmallDetail", sender: self)
+            }
+            else {
+                    performSegue(withIdentifier: "pDetail", sender: self)
             }
         }
     }
