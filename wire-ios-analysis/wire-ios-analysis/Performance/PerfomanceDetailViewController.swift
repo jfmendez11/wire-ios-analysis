@@ -104,7 +104,10 @@ class PerfomanceDetailViewController: UIViewController, UIScrollViewDelegate {
             let disk2 = SectionCode(description: getDisk2(),image: UIImage(named: "disk3")!)
             sectionsCode4.append(disk2)
             
-             //sectionsCode5 es Storage
+            let network1 = SectionCode(description: getNetwork1(),image: UIImage(named: "network2")!)
+            sectionsCode5.append(network1)
+            let network2 = SectionCode(description: getNetwork2(),image: UIImage(named: "network3")!)
+            sectionsCode5.append(network2)
             
             let storage1 = SectionCode(description: getStorage1(),image: UIImage(named: "storage2")!)
             sectionsCode6.append(storage1)
@@ -170,6 +173,17 @@ class PerfomanceDetailViewController: UIViewController, UIScrollViewDelegate {
              We traced the highlighted event from  the picture before to Wire Transport library. This event goes to the NetworkSocket.swift class and indicates that the first possible source of the problem is the function onBytesAvailable where UnsafeMutableRawBufferPointer funtion appears again. In this case it is used as a view of the raw bytes of a portion of memory. This is the principal possible reason of the dispatch_workloop_worker_thread. 
             """
     }
+    private func getNetwork1() -> String {
+        return """
+            This snippet of code corresponds to the HTTP pipeling to start a voIP session or a background session, depending the case. This happens in the Wire Transport layer which manages the communication of Wire.
+            """
+    }
+    private func getNetwork2() -> String {
+        return """
+            This is were the sessions are configured taking into account what was done in the last image. It uses NSURLSessionConfiguration to define the policies to download and upload data and this is called in the conversation process. When the configuration is setup, the download process in the conversation view can develop.
+            """
+    }
+    
     private func getStorage1() -> String {
            return """
                In this snippet of code, we can see the extension NSManagedObjectContext of the class ZMCallState.swift on the WireData library. The NSManagedObjectContext lets Wire manage Core Data model objects and they are available across the threads of the application.
@@ -196,7 +210,12 @@ class PerfomanceDetailViewController: UIViewController, UIScrollViewDelegate {
             else if labelTitle.text == "Disk"{
                 return 2
             }
+            else if labelTitle.text == "Network"{
+                return 2
+            }
+            else {
             return 3
+            }
         }
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -222,8 +241,8 @@ class PerfomanceDetailViewController: UIViewController, UIScrollViewDelegate {
                 cell.descriptionLabel.text = sectionsCode4[indexPath.row].description
             }
             else if labelTitle.text == "Network" {
-                cell.imageView.image = sectionsCode1[indexPath.row].image
-                cell.descriptionLabel.text = sectionsCode1[indexPath.row].description
+                cell.imageView.image = sectionsCode5[indexPath.row].image
+                cell.descriptionLabel.text = sectionsCode5[indexPath.row].description
             }
             else if labelTitle.text == "Storage" {
                 cell.imageView.image = sectionsCode6[indexPath.row].image
