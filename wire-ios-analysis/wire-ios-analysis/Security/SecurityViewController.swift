@@ -124,11 +124,11 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
         
         permissionLabel.text = getPermissionsText()
         permissionView.addSubview(permissionLabel)
-        permissionLabel.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
+        //permissionLabel.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
         permissionLabel.layer.cornerRadius = 10
-        permissionLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 8).isActive = true
-        permissionLabel.leadingAnchor.constraint(equalTo: permissionView.leadingAnchor, constant: 8).isActive = true
-        permissionLabel.trailingAnchor.constraint(equalTo: permissionView.trailingAnchor, constant: -8).isActive = true
+        permissionLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 0).isActive = true
+        permissionLabel.leadingAnchor.constraint(equalTo: permissionView.leadingAnchor, constant: 16).isActive = true
+        permissionLabel.trailingAnchor.constraint(equalTo: permissionView.trailingAnchor, constant: -16).isActive = true
         permissionLabel.heightAnchor.constraint(equalToConstant: 75).isActive = true
         
         collectionView.delegate = self
@@ -138,17 +138,17 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
         collectionView2.backgroundColor = .white
         collectionView2.topAnchor.constraint(equalTo: permissionLabel.bottomAnchor, constant: 4).isActive = true
         collectionView2.leadingAnchor.constraint(equalTo: permissionView.leadingAnchor, constant: 8).isActive = true
-        collectionView2.trailingAnchor.constraint(equalTo: permissionView.trailingAnchor, constant: 0).isActive = true
+        collectionView2.trailingAnchor.constraint(equalTo: permissionView.trailingAnchor, constant: -8).isActive = true
         collectionView2.heightAnchor.constraint(equalToConstant: 190).isActive = true
         
         permissionLabel2.text = getPermissionsText2()
         permissionView.addSubview(permissionLabel2)
-        permissionLabel2.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
+        //permissionLabel2.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
         permissionLabel2.layer.cornerRadius = 10
-        permissionLabel2.topAnchor.constraint(equalTo: collectionView2.bottomAnchor, constant: 8).isActive = true
-        permissionLabel2.leadingAnchor.constraint(equalTo: permissionView.leadingAnchor, constant: 8).isActive = true
-        permissionLabel2.trailingAnchor.constraint(equalTo: permissionView.trailingAnchor, constant: -8).isActive = true
-        permissionLabel2.bottomAnchor.constraint(equalTo: permissionView.bottomAnchor, constant: -8).isActive = true
+        permissionLabel2.topAnchor.constraint(equalTo: collectionView2.bottomAnchor, constant: 0).isActive = true
+        permissionLabel2.leadingAnchor.constraint(equalTo: permissionView.leadingAnchor, constant: 16).isActive = true
+        permissionLabel2.trailingAnchor.constraint(equalTo: permissionView.trailingAnchor, constant: -16).isActive = true
+        permissionLabel2.bottomAnchor.constraint(equalTo: permissionView.bottomAnchor, constant: -16).isActive = true
         
         collectionView2.delegate = self
         collectionView2.dataSource = self
@@ -305,7 +305,11 @@ class SecurityViewController: UIViewController, UIScrollViewDelegate {
     
     private func getPermissionsText2() -> String {
         return """
-        For requesting permissions to access the microphone, camera and photoLibrary do pretty much the same thing. Permissions for camera, photo library and microphone are done in class UIApplication+Permissions.swift. , while contacts does it in in class AddressBookHelper.swift. Wire requests to access the permission that the user need  for the feature. The Dispatch main queue to get the microphone or  camera  status. Every permission is only asked once in the Conversation MessageToolBox related class. In the case of Location permission, we couldn’t find the snippet of code where a request for permission is called. In the info.plist we found that this permission is used but in the code it is hard to find. The closest function we could find is openInMaps in class ZMLocationMessageData+Coordinates.swift. We found that this function is called only in the ConversationLocationMessageCel.swift which corresponds to where the share location button is.
+        For requesting permissions to access the microphone, camera and photoLibrary do pretty much the same thing. Permissions for camera, photo library and microphone are done in class UIApplication+Permissions.swift. , while contacts does it in in class AddressBookHelper.swift. Wire requests to access the permission that the user need  for the feature.
+        
+        The Dispatch main queue to get the microphone or  camera  status. Every permission is only asked once in the Conversation MessageToolBox related class. In the case of Location permission, we couldn’t find the snippet of code where a request for permission is called.
+        
+        In the info.plist we found that this permission is used but in the code it is hard to find. The closest function we could find is openInMaps in class ZMLocationMessageData+Coordinates.swift. We found that this function is called only in the ConversationLocationMessageCel.swift which corresponds to where the share location button is.
         """
     }
     

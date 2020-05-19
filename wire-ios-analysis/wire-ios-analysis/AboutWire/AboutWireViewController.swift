@@ -95,19 +95,19 @@ class AboutWireViewController: UIViewController, UIScrollViewDelegate {
         otherCollectionView.dataSource = self
         
         descriptionTextLabel.text = getDescriptionText()
-        descriptionTextLabel.textAlignment = .justified
+        descriptionTextLabel.textAlignment = .left
         descriptionTextLabel.numberOfLines = 0
         
         featuresTextLabel.text = getFeaturesText1()
-        featuresTextLabel.textAlignment = .justified
+        featuresTextLabel.textAlignment = .left
         featuresTextLabel.numberOfLines = 0
         
         featuresTextLabel2.text = getFeaturesText2()
-        featuresTextLabel2.textAlignment = .justified
+        featuresTextLabel2.textAlignment = .left
         featuresTextLabel2.numberOfLines = 0
         
         featuresTextLabel3.text = getFeaturesText3()
-        featuresTextLabel3.textAlignment = .justified
+        featuresTextLabel3.textAlignment = .left
         featuresTextLabel3.numberOfLines = 0
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
@@ -159,7 +159,7 @@ class AboutWireViewController: UIViewController, UIScrollViewDelegate {
     
     private func getFeaturesText1() -> String {
         return """
-        Wire provides the basic messanging features:
+        Wire provides the basic messaging features:
         
         •  Create a chat with another user.
         •  Send text messages, voice messages, images, videos, GIFs, location and other attachments.
@@ -175,7 +175,7 @@ class AboutWireViewController: UIViewController, UIScrollViewDelegate {
     private func getFeaturesText2() -> String {
         return """
         Besides, Wire has other features that differentiates them from others:
-
+        
         •  Guest rooms: Wire’s secure guest rooms feature extends end-to-end encryption to conversations with external parties without requiring them to register, or even download the app.
         •  Like messages.
         •  Send drawing made inside the app.
@@ -190,8 +190,10 @@ class AboutWireViewController: UIViewController, UIScrollViewDelegate {
     
     private func getFeaturesText3() -> String {
         return """
-        “Wire is the most secure and user-friendly collaboration solution that helps avoid shadow-IT and minimize the risk of cyber attacks”. This is aimed to be the value proposition of the app. The product is made, primarily, for organizations and its main purpose is to "increase the productivity in your team while keeping your information private." With this in mind, it can be affirmed that the segment target of Wire are the organizations that have a lot of teams and want to communicate efficiently and safely. Organization communication includes files, conference calls and private conversations. For this reason “Wire connects colleagues, partners, consultants and customers in one intuitive and secure platform.” In summary, the problem that they want to solve is the lack of security and easy ways to communicate between the differennt stake-holders of an organization. They created a multiplatform (mobile, web and desktop) solution where organizations can communicate easily and safely. The main characteristics of Wire are:
-
+        “Wire is the most secure and user-friendly collaboration solution that helps avoid shadow-IT and minimize the risk of cyber attacks”. This is aimed to be the value proposition of the app. The product is made, primarily, for organizations and its main purpose is to "increase the productivity in your team while keeping your information private." With this in mind, it can be affirmed that the segment target of Wire are the organizations that have a lot of teams and want to communicate efficiently and safely. Organization communication includes files, conference calls and private conversations. For this reason “Wire connects colleagues, partners, consultants and customers in one intuitive and secure platform.” In summary, the problem that they want to solve is the lack of security and easy ways to communicate between the differennt stake-holders of an organization. They created a multiplatform (mobile, web and desktop) solution where organizations can communicate easily and safely.
+        
+        The main characteristics of Wire are:
+        
         •  End-to-end encryption.
         •  Independently audited.
         •  Multi-device messaging.
@@ -199,7 +201,7 @@ class AboutWireViewController: UIViewController, UIScrollViewDelegate {
         •  Forward and backward secrecy.
 
         Wire Pro extra features:
-
+        
         •  End-to-end encrypted chats, calls and files.
         •  Secure guest rooms for external parties.
         •  Video and audio conference calls with just a click.
@@ -207,7 +209,7 @@ class AboutWireViewController: UIViewController, UIScrollViewDelegate {
         •  GDPR-compliant and ISO, CCPA, SOX-ready.
         
         Wire Enterprise extra features:
-
+        
         •  Productive and seamless internal collaboration.
         •  Protect your data with unrivalled security.
         •  Steer clear of costly cyber-attacks.
@@ -346,7 +348,7 @@ class CustomCell: UICollectionViewCell {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.contentMode = .scaleToFill
         lbl.clipsToBounds = true
-        //lbl.adjustsFontSizeToFitWidth = true
+        lbl.adjustsFontSizeToFitWidth = true
         lbl.minimumScaleFactor = 0.5
         lbl.numberOfLines = 0 // or 1
         return lbl
@@ -375,9 +377,9 @@ class CustomCell: UICollectionViewCell {
         
         contentView.addSubview(contentLabel)
         contentLabel.topAnchor.constraint(equalTo: ratingLabel.bottomAnchor, constant: 0).isActive = true
-        contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4).isActive = true
-        contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 4).isActive = true
-        contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 4).isActive = true
+        contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+        contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12).isActive = true
+        contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12).isActive = true
     }
     
     required init?(coder: NSCoder) {

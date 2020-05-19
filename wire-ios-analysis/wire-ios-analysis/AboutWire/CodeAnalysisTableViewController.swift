@@ -79,6 +79,7 @@ class CodeAnalysisTableViewController: UITableViewController {
     @IBOutlet weak var statsBarChart: BasicBarChart!
     @IBOutlet weak var objectsBarChart: BeautifulBarChart!
     @IBOutlet weak var importsBarChart: BasicBarChart!
+    @IBOutlet weak var overviewText: UILabel!
     
     var inheritances = [Inheritance]()
     var scanStats: Stats?
@@ -106,6 +107,12 @@ class CodeAnalysisTableViewController: UITableViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        overviewText.numberOfLines = 0
+        overviewText.adjustsFontSizeToFitWidth = true
+        overviewText.minimumScaleFactor = 0.75
+        overviewText.textAlignment = .justified
+        overviewText.text = getOverviewText()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -161,7 +168,6 @@ class CodeAnalysisTableViewController: UITableViewController {
                     formatter2.locale = Locale(identifier: "en")
                     self.lastReleaseDateLabel.text = formatter2.string(from: date)
                 }
-                self.numberOfVersionsLabel.text = "\(releases.count)"
                 self.releases = releases
                 self.collectionView.reloadData()
             }
@@ -260,6 +266,20 @@ class CodeAnalysisTableViewController: UITableViewController {
                 onError()
             }
         }
+    }
+    
+    private func getOverviewText() -> String {
+        return """
+        There are a lot if interesting things going on here. First of all, we can observe that Wire's backend runs on Azure (hence the badge).
+        
+        Secondly, we can observe that Wire for iOS has 93 versions, being 3.58 the most recent one. On the other hand, we can observe that the app publishes a release every 2 weeks (approx.).
+        
+        In the inheritance graph, we can see that the app doesn't use any SwiftUI for building their UI, and rather rely on Views and View Controllers. One interesting aspect when exploring through the app's source code is the lack of a storyboard. This means that all of their visual components are created programatically.
+        
+        The app has a total of 785,001 lines of code (excluding comments and imports), 3,104 files, 687,498 lines of stripped code and their longest file generated_swift_names_messages.pb.swift has 28,356 lines of code. However, this file warns explecitely to not edit.
+        
+        The app makes an extensive use of extensions, followed by classes, structs, protocols and enums. This makes sense given that extensions add new functionalities to an existing class. Finally, we can observe all of the imports used to build the UI. Many of them are their in-house dependencies, others are the available iOS libraries like Foundation and UIKit.
+        """
     }
 
     // MARK: - Table view data source
@@ -426,7 +446,7 @@ class CustomCommentCell: UICollectionViewCell {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.contentMode = .scaleToFill
         lbl.clipsToBounds = true
-        //lbl.adjustsFontSizeToFitWidth = true
+        lbl.adjustsFontSizeToFitWidth = true
         lbl.minimumScaleFactor = 0.5
         lbl.numberOfLines = 0 // or 1
         return lbl
@@ -461,9 +481,9 @@ class CustomCommentCell: UICollectionViewCell {
         
         contentView.addSubview(contentLabel)
         contentLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 0).isActive = true
-        contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4).isActive = true
-        contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 4).isActive = true
-        contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 4).isActive = true
+        contentLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+        contentLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12).isActive = true
+        contentLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12).isActive = true
     }
     
     required init?(coder: NSCoder) {

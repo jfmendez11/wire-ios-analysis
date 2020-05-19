@@ -50,7 +50,7 @@ class DependencyDetailViewController: UIViewController {
         nameLabel.adjustsFontSizeToFitWidth = true
         
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
+        //descriptionLabel.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9058823529, blue: 0.9058823529, alpha: 1)
         descriptionLabel.layer.cornerRadius = 10
         descriptionLabel.adjustsFontSizeToFitWidth = true
         // Do any additional setup after loading the view.

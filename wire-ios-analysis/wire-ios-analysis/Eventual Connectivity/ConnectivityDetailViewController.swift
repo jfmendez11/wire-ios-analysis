@@ -127,7 +127,7 @@ class ConnectivityDetailViewController: UIViewController, UIScrollViewDelegate {
     extension ConnectivityDetailViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
         
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: codeView.frame.width/1.25, height: codeView.frame.width/1.5)
+            return CGSize(width: codeView.frame.width/1.1, height: codeView.frame.height/1.25)
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -198,40 +198,25 @@ class ConnectivityDetailViewController: UIViewController, UIScrollViewDelegate {
             lbl.textAlignment = .natural
                lbl.font = UIFont.systemFont(ofSize: 11)
                lbl.numberOfLines = 0
-               lbl.minimumScaleFactor = 0.75
+               lbl.minimumScaleFactor = 0.5
             lbl.adjustsFontSizeToFitWidth = true
             return lbl
-        }()
-        
-        lazy var verticalStackView: UIStackView = {
-           let stackView = UIStackView(arrangedSubviews: [self.imageView, self.descriptionLabel])
-            stackView.axis = .vertical
-            stackView.distribution = .fillEqually
-            stackView.spacing = 2.0
-            return stackView
         }()
         
         override init(frame: CGRect) {
             super.init(frame: .zero)
             
-            verticalStackView.translatesAutoresizingMaskIntoConstraints = false
-            contentView.addSubview(verticalStackView)
-            
-            verticalStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-            verticalStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-            verticalStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-            verticalStackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-            /*contentView.addSubview(descriptionLabel)
-            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
-            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
-            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
-            descriptionLabel.heightAnchor.constraint(equalToConstant: contentView.bounds.height/2).isActive = true
-            
-            contentView.addSubview(imageView)
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+           contentView.addSubview(imageView)
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
-            imageView.heightAnchor.constraint(equalToConstant: contentView.bounds.height/2).isActive = true
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true*/
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+            
+            contentView.addSubview(descriptionLabel)
+            descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8).isActive = true
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8).isActive = true
         }
         
         required init?(coder: NSCoder) {
