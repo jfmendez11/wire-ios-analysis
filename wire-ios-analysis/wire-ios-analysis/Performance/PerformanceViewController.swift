@@ -184,8 +184,10 @@ class PerformanceViewController: UIViewController {
             selectedIndexPath = indexPath.row
             print("selectedIndexPath en UIUX\(selectedIndexPath)")
             
-            
-            if selectedIndexPath == 7 {
+            if selectedIndexPath == 5 {
+                    performSegue(withIdentifier: "pSmallDetail", sender: self)
+            }
+            else if selectedIndexPath == 7 {
                     performSegue(withIdentifier: "pSmallDetail", sender: self)
             }
             else {
